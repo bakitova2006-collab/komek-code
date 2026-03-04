@@ -11,6 +11,7 @@ import {
 // ✅ Впиши сюда СВОЙ email (и при желании других учителей)
 const TEACHER_EMAILS = [
   "yourteacher@gmail.com"
+  "bakitova2006@gmail.com"
 ];
 
 const qs = new URLSearchParams(location.search);
