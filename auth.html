@@ -1,1 +1,48 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KOMEK_CODE — Вход</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="page">
+    <h1 id="title">Вход</h1>
+    <p class="muted" id="subtitle"></p>
 
+    <section class="card">
+      <label class="label">Email</label>
+      <input id="email" class="input" placeholder="example@mail.com">
+
+      <label class="label">Пароль</label>
+      <input id="pass" class="input" type="password" placeholder="••••••••">
+
+      <div id="studentFields" hidden>
+        <label class="label">ФИО</label>
+        <input id="fullName" class="input" placeholder="Иванов Иван">
+
+        <label class="label">Класс</label>
+        <select id="grade" class="input">
+          <option value="10">10 класс</option>
+          <option value="11">11 класс</option>
+        </select>
+
+        <label class="label">Буква класса (параллель)</label>
+        <input id="letter" class="input" placeholder="А, Б, В...">
+      </div>
+
+      <div class="row">
+        <button class="btn primary" id="btnLogin">Войти</button>
+        <button class="btn" id="btnRegister">Регистрация</button>
+      </div>
+
+      <div class="muted" id="msg" style="margin-top:10px;"></div>
+    </section>
+
+    <a class="muted small" href="index.html">← На главную</a>
+  </main>
+
+  <script type="module" src="auth.js"></script>
+</body>
+</html>
