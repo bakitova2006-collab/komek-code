@@ -1,1 +1,36 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KOMEK_CODE — Учитель</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="page">
+    <h1>Кабинет учителя</h1>
+    <p class="muted" id="teacherInfo"></p>
 
+    <section class="card">
+      <h2>Журнал результатов</h2>
+
+      <div class="row">
+        <select id="filterGrade" class="input">
+          <option value="all">Все классы</option>
+          <option value="10">10 класс</option>
+          <option value="11">11 класс</option>
+        </select>
+
+        <button class="btn" id="reloadBtn">Обновить</button>
+      </div>
+
+      <div id="tableWrap" style="margin-top:12px;"></div>
+      <div class="muted small" id="count"></div>
+    </section>
+
+    <a class="muted small" href="index.html">← На главную</a>
+  </main>
+
+  <script type="module" src="teacher.js"></script>
+</body>
+</html>
