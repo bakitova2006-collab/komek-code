@@ -1,4 +1,3 @@
-// auth.js
 import { auth, db } from "./firebase-init.js";
 import {
   signInWithEmailAndPassword,
@@ -8,96 +7,182 @@ import {
   doc, setDoc, serverTimestamp
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-// ✅ Впиши сюда СВОЙ email (и при желании других учителей)
+// ВАЖНО: впиши сюда свой email учителя
 const TEACHER_EMAILS = [
-  "yourteacher@gmail.com"
-  "bakitova2006@gmail.com"
+  "ТВОЙ_EMAIL@gmail.com"
 ];
 
 const qs = new URLSearchParams(location.search);
-const role = qs.get("role") || "student"; // student | teacher
+const role = qs.get("role") || "student";
 
-const title = document.getElementById("title");
-const subtitle = document.getElementById("subtitle");
 const studentFields = document.getElementById("studentFields");
 
 const emailEl = document.getElementById("email");
-const passEl = document.getElementById("pass");
+const passEl  = document.getElementById("pass");
 const fullNameEl = document.getElementById("fullName");
 const gradeEl = document.getElementById("grade");
 const letterEl = document.getElementById("letter");
 
-const msg = document.getElementById("msg");
+const emailHint = document.getElementById("emailHint");
+const passHint  = document.getElementById("passHint");
+const nameHint  = document.getElementById("nameHint");
+const letterHint= document.getElementById("letterHint");
+const msg       = document.getElementById("msg");
+
 const btnLogin = document.getElementById("btnLogin");
 const btnRegister = document.getElementById("btnRegister");
 
-function setMessage(t){ msg.textContent = t || ""; }
-
-title.textContent = role === "teacher" ? "Вход учителя" : "Вход ученика";
-subtitle.textContent = role === "teacher"
-  ? "Доступ только для учителя (по email)."
-  : "Войдите или зарегистрируйтесь, чтобы сохранять результаты.";
 studentFields.hidden = role !== "student";
 
-// Проверка: может ли этот email быть учителем
+function setHint(el, text, type){
+  if(!el) return;
+  el.textContent = text || "";
+  el.className = "hint" + (type ? ` ${type}` : "");
+}
+
+function clearHints(){
+  setHint(emailHint, "");
+  setHint(passHint, "");
+  setHint(nameHint, "");
+  setHint(letterHint, "");
+  setHint(msg, "");
+}
+
 function isTeacherEmail(email){
   return TEACHER_EMAILS.map(e => e.toLowerCase()).includes((email || "").toLowerCase());
 }
 
-btnRegister.addEventListener("click", async () => {
-  try {
-    setMessage("");
-    const email = emailEl.value.trim();
-    const pass = passEl.value.trim();
+// Простая проверка email
+function looksLikeEmail(email){
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
 
-    // ❗ Запрещаем регистрацию "учителя" всем, кроме белого списка
-    if (role === "teacher" && !isTeacherEmail(email)) {
-      return setMessage("Этот email не имеет доступа учителя. Используйте вход ученика.");
+function validateForm(isRegister){
+  clearHints();
+  let ok = true;
+
+  const email = emailEl.value.trim();
+  const pass  = passEl.value;
+
+  if(!email){
+    setHint(emailHint, "Введите email.", "error");
+    ok = false;
+  } else if(!looksLikeEmail(email)){
+    setHint(emailHint, "Похоже, email написан неверно (пример: name@mail.com).", "error");
+    ok = false;
+  } else {
+    setHint(emailHint, "Ок", "ok");
+  }
+
+  if(!pass){
+    setHint(passHint, "Введите пароль.", "error");
+    ok = false;
+  } else if(pass.length < 6){
+    setHint(passHint, "Пароль должен быть минимум 6 символов.", "error");
+    ok = false;
+  } else {
+    setHint(passHint, "Ок", "ok");
+  }
+
+  // Для ученика при регистрации проверим доп. поля
+  if(role === "student" && isRegister){
+    const name = (fullNameEl?.value || "").trim();
+    const letter = (letterEl?.value || "").trim();
+
+    if(!name){
+      setHint(nameHint, "Введите ФИО (как в журнале).", "error");
+      ok = false;
+    } else {
+      setHint(nameHint, "Ок", "ok");
     }
+
+    if(!letter){
+      setHint(letterHint, "Введите букву класса (например: А).", "error");
+      ok = false;
+    } else {
+      setHint(letterHint, "Ок", "ok");
+    }
+  }
+
+  // Для учителя проверим доступ по email
+  if(role === "teacher" && !isTeacherEmail(email)){
+    setHint(msg, "Этот email не имеет доступа учителя. Проверь TEACHER_EMAILS в коде.", "error");
+    ok = false;
+  }
+
+  return ok;
+}
+
+function firebaseErrorToText(code){
+  // самые частые и понятные
+  switch(code){
+    case "auth/invalid-email":
+      return "Неверный формат email.";
+    case "auth/missing-password":
+      return "Введите пароль.";
+    case "auth/weak-password":
+      return "Слишком простой пароль. Минимум 6 символов.";
+    case "auth/email-already-in-use":
+      return "Этот email уже зарегистрирован. Нажмите “Войти”.";
+    case "auth/user-not-found":
+      return "Пользователь не найден. Сначала нажмите “Регистрация”.";
+    case "auth/wrong-password":
+    case "auth/invalid-credential":
+      return "Неверный пароль (или email). Проверьте данные.";
+    case "auth/too-many-requests":
+      return "Слишком много попыток. Подождите немного и попробуйте снова.";
+    case "auth/network-request-failed":
+      return "Проблема с интернетом или блокировка запросов. Попробуйте другой браузер/инкогнито.";
+    default:
+      return `Ошибка: ${code}`;
+  }
+}
+
+btnRegister.addEventListener("click", async () => {
+  const ok = validateForm(true);
+  if(!ok) return;
+
+  try{
+    setHint(msg, "Регистрируем...", "");
+    const email = emailEl.value.trim();
+    const pass = passEl.value;
 
     const cred = await createUserWithEmailAndPassword(auth, email, pass);
 
-    // Если ученик — создаём профиль
-    if (role === "student") {
-      const fullName = fullNameEl.value.trim();
-      const grade = gradeEl.value;
-      const letter = letterEl.value.trim().toUpperCase();
-
+    if(role === "student"){
       await setDoc(doc(db, "profiles", cred.user.uid), {
         role: "student",
-        fullName,
-        grade,
-        letter,
+        fullName: fullNameEl.value.trim(),
+        grade: gradeEl.value,
+        letter: letterEl.value.trim().toUpperCase(),
         createdAt: serverTimestamp()
       }, { merge: true });
 
+      setHint(msg, "✅ Регистрация успешна! Переходим в кабинет ученика...", "ok");
       location.href = "student.html";
-      return;
+    } else {
+      setHint(msg, "✅ Учитель зарегистрирован. Переходим в кабинет учителя...", "ok");
+      location.href = "teacher.html";
     }
-
-    // Если учитель — просто переходим
-    location.href = "teacher.html";
-  } catch (e) {
-    setMessage(e.message);
+  } catch(e){
+    setHint(msg, firebaseErrorToText(e.code), "error");
   }
 });
 
 btnLogin.addEventListener("click", async () => {
-  try {
-    setMessage("");
-    const email = emailEl.value.trim();
-    const pass = passEl.value.trim();
+  const ok = validateForm(false);
+  if(!ok) return;
 
-    // Учитель — только email из списка
-    if (role === "teacher" && !isTeacherEmail(email)) {
-      return setMessage("Нет доступа учителя для этого email.");
-    }
+  try{
+    setHint(msg, "Входим...", "");
+    const email = emailEl.value.trim();
+    const pass = passEl.value;
 
     await signInWithEmailAndPassword(auth, email, pass);
 
-    if (role === "teacher") location.href = "teacher.html";
-    else location.href = "student.html";
-  } catch (e) {
-    setMessage(e.message);
+    setHint(msg, "✅ Вход успешен! Открываем кабинет...", "ok");
+    location.href = (role === "teacher") ? "teacher.html" : "student.html";
+  } catch(e){
+    setHint(msg, firebaseErrorToText(e.code), "error");
   }
 });
