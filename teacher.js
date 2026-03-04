@@ -10,7 +10,7 @@ const reloadBtn = document.getElementById("reloadBtn");
 const count = document.getElementById("count");
 
 // ✅ тот же белый список, что и в auth.js
-const TEACHER_EMAILS = ["yourteacher@gmail.com"];
+const TEACHER_EMAILS = ["bakitova2006@gmail.com"];
 const isTeacherEmail = (email) => TEACHER_EMAILS.map(e=>e.toLowerCase()).includes((email||"").toLowerCase());
 
 onAuthStateChanged(auth, async (user) => {
