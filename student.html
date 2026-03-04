@@ -1,1 +1,46 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KOMEK_CODE — Ученик</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="page">
+    <h1>Кабинет ученика</h1>
+    <p class="muted" id="who"></p>
 
+    <section class="card">
+      <h2>Модули</h2>
+      <div class="row">
+        <button class="btn">HTML</button>
+        <button class="btn primary">CSS</button>
+        <button class="btn">JavaScript</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Задание 14.3 — CSS “Баянаул”</h2>
+      <p class="muted">Нажми “Проверить”, затем “Сдать”. Балл сохранится.</p>
+
+      <textarea id="cssInput" class="textarea">.bayan-card{
+  border-radius: 15px;
+  color: #005a8a;
+  background-image: linear-gradient(135deg, rgba(14,165,165,.18), rgba(0,90,138,.10));
+}</textarea>
+
+      <div class="row">
+        <button class="btn" id="checkBtn">Проверить</button>
+        <button class="btn primary" id="submitBtn">Сдать</button>
+      </div>
+
+      <div class="muted" id="status" style="margin-top:10px;"></div>
+    </section>
+
+    <a class="muted small" href="index.html">← На главную</a>
+  </main>
+
+  <script type="module" src="student.js"></script>
+</body>
+</html>
