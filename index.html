@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KOMEK_CODE — Веб-разработка</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="logo">🚀</div>
+        <div class="brand-text">
+          <div class="brand-name">KOMEK_CODE</div>
+          <div class="brand-sub">web course</div>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <button class="nav-item active" data-page="dashboard">🏠</button>
+        <button class="nav-item" data-page="module">📚</button>
+        <button class="nav-item" data-page="trainer">🧩</button>
+        <button class="nav-item" data-page="profile">👤</button>
+        <button class="nav-item" data-page="settings">⚙️</button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a class="link" href="#" id="resetProgress">Сбросить прогресс</a>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+
+      <!-- TOPBAR -->
+      <header class="topbar">
+        <div class="search">
+          <span class="icon">🔎</span>
+          <input id="searchInput" type="text" placeholder="Поиск по урокам, модулям..." />
+        </div>
+
+        <div class="user">
+          <div class="user-meta">
+            <div class="user-title">Студент</div>
+            <div class="user-name" id="userName">Aruzhan</div>
+          </div>
+          <div class="avatar" title="Профиль">A</div>
+        </div>
+      </header>
+
+      <!-- PAGE TITLE -->
+      <section class="hero">
+        <div>
+          <h1 id="pageTitle">ТВОЙ ПУТЬ В МИР WEB-РАЗРАБОТКИ</h1>
+          <p class="muted">Для школьников 10–11 классов • HTML • CSS • JavaScript</p>
+        </div>
+
+        <div class="progress-wrap">
+          <div class="progress-label">
+            <span>Прогресс</span>
+            <strong id="progressText">75%</strong>
+          </div>
+          <div class="progress">
+            <div class="bar" id="progressBar" style="width: 75%"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CARDS GRID -->
+      <section class="grid">
+
+        <!-- CURRENT LESSON -->
+        <article class="card card-big">
+          <div class="card-head">
+            <span class="pill">ТЕКУЩИЙ УРОК</span>
+            <h2 id="lessonTitle">Урок 14: CSS Анимации и Трансформации</h2>
+            <p class="muted">Коротко, практично и красиво — как у настоящих фронтендеров 🙂</p>
+          </div>
+
+          <div class="card-foot">
+            <button class="btn primary" id="continueBtn">ПРОДОЛЖИТЬ</button>
+            <div class="mini">
+              <span class="muted">Готово:</span> <strong id="lessonDone">100%</strong>
+            </div>
+          </div>
+        </article>
+
+        <!-- TRAINER -->
+        <article class="card">
+          <div class="card-head">
+            <span class="pill">ИНТЕРАКТИВНЫЙ ТРЕНАЖЁР</span>
+            <h3>Мини-практика</h3>
+            <p class="muted">Сделай карточку Байанаула и проверь валидатор.</p>
+          </div>
+          <button class="btn" id="openTrainer">Открыть тренажёр</button>
+        </article>
+
+        <!-- CHALLENGE -->
+        <article class="card">
+          <div class="card-head">
+            <span class="pill">РЕГИОНАЛЬНЫЙ ЧЕЛЛЕНДЖ</span>
+            <h3>Сделай лендинг</h3>
+            <p class="muted">Простой лендинг под событие (EXPO-2017).</p>
+          </div>
+          <button class="btn">Посмотреть задачу</button>
+        </article>
+      </section>
+
+      <!-- TRAINER SECTION -->
+      <section class="trainer" id="trainerSection" hidden>
+        <div class="trainer-grid">
+
+          <div class="card">
+            <div class="card-head">
+              <h2>МОДУЛЬ 2: CSS Стилизация</h2>
+              <p class="muted"><strong>Задание 14.3:</strong> стилизация карты “Баянаул”</p>
+              <ul class="list">
+                <li>цвет: <code>#005a8a</code></li>
+                <li>border-radius: <code>15px</code></li>
+                <li>background-image: фон “океан/градиент”</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <h3>Ваш CSS</h3>
+              <p class="muted">Измени свойства и нажми “Проверить”.</p>
+            </div>
+
+            <label class="label">CSS для .bayan-card</label>
+            <textarea id="cssInput" spellcheck="false">.bayan-card{
+  /* Добавьте стиль Байанаула сюда */
+}</textarea>
+
+            <div class="row">
+              <button class="btn primary" id="checkBtn">ПРОВЕРИТЬ КОД</button>
+              <button class="btn" id="backBtn">НАЗАД</button>
+            </div>
+
+            <div class="validation">
+              <div class="v-title">Валидация</div>
+              <label class="v-item"><input type="checkbox" id="vBg" disabled> background-image добавлено</label>
+              <label class="v-item"><input type="checkbox" id="vRadius" disabled> border-radius 15px</label>
+              <label class="v-item"><input type="checkbox" id="vColor" disabled> color #005a8a</label>
+            </div>
+          </div>
+
+          <div class="card live">
+            <div class="card-head">
+              <h3>Live результат</h3>
+              <p class="muted">Карточка обновляется после “Проверить”.</p>
+            </div>
+
+            <div class="bayan-card" id="bayanCard">
+              <div class="b-title">Bayanau l</div>
+              <div class="b-sub">National Park</div>
+              <div class="map"></div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <footer class="footer">
+        <span class="muted">© KOMEK_CODE • демо-шаблон для курсовой</span>
+      </footer>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
