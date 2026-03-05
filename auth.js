@@ -187,3 +187,23 @@ btnLogin.addEventListener("click", async () => {
     setHint(msg, firebaseErrorToText(e.code), "error");
   }
 });
+
+import { sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+btnReset.addEventListener("click", async () => {
+
+  const email = emailEl.value.trim();
+
+  if(!email){
+    setHint(msg, "Введите email для восстановления пароля", "error");
+    return;
+  }
+
+  try{
+    await sendPasswordResetEmail(auth, email);
+    setHint(msg, "Письмо для восстановления отправлено на почту.", "ok");
+  }catch(e){
+    setHint(msg, "Ошибка: " + e.message, "error");
+  }
+
+});
