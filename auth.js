@@ -31,6 +31,7 @@ const msg       = document.getElementById("msg");
 
 const btnLogin = document.getElementById("btnLogin");
 const btnRegister = document.getElementById("btnRegister");
+const btnReset = document.getElementById("btnReset");
 
 studentFields.hidden = role !== "student";
 
