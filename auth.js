@@ -9,7 +9,7 @@ import {
 
 // ВАЖНО: впиши сюда свой email учителя
 const TEACHER_EMAILS = [
-  "ТВОЙ_EMAIL@gmail.com"
+  "bakitova2006@gmail.com"
 ];
 
 const qs = new URLSearchParams(location.search);
