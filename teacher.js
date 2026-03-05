@@ -9,9 +9,9 @@ const filterGrade = document.getElementById("filterGrade");
 const reloadBtn = document.getElementById("reloadBtn");
 const count = document.getElementById("count");
 
-// ✅ тот же белый список, что и в auth.js
-const TEACHER_EMAILS = ["bakitova2006@gmail.com"];
-const isTeacherEmail = (email) => TEACHER_EMAILS.map(e=>e.toLowerCase()).includes((email||"").toLowerCase());
+// Доступ только для этого email
+const TEACHER_EMAIL = "bakitova2006@gmail.com";
+const isTeacherEmail = (email) => (email || "").toLowerCase() === TEACHER_EMAIL;
 
 onAuthStateChanged(auth, async (user) => {
   if (!user) {
@@ -31,7 +31,7 @@ onAuthStateChanged(auth, async (user) => {
 reloadBtn.addEventListener("click", loadTable);
 filterGrade.addEventListener("change", loadTable);
 
-async function loadTable(){
+async function loadTable() {
   tableWrap.innerHTML = "Загрузка...";
   const gradeFilter = filterGrade.value;
 
@@ -44,20 +44,23 @@ async function loadTable(){
     return String(r.student?.grade || "") === String(gradeFilter);
   });
 
-  filtered.sort((a,b) => (b.score||0) - (a.score||0));
+  filtered.sort((a, b) => (b.score || 0) - (a.score || 0));
 
   tableWrap.innerHTML = makeTable(filtered);
   count.textContent = `Записей: ${filtered.length}`;
 }
 
-function esc(s){
-  return String(s ?? "").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;");
+function esc(s) {
+  return String(s ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;");
 }
 
-function makeTable(rows){
+function makeTable(rows) {
   if (!rows.length) return "<div class='muted'>Пока нет сданных работ.</div>";
 
-  const head = `
+  return `
     <table class="table">
       <thead>
         <tr>
@@ -69,17 +72,16 @@ function makeTable(rows){
         </tr>
       </thead>
       <tbody>
+        ${rows.map(r => `
+          <tr>
+            <td>${esc(r.student?.fullName || "")}</td>
+            <td>${esc(r.student?.grade || "")}${esc(r.student?.letter || "")}</td>
+            <td>${esc(r.lessonId || "")}</td>
+            <td><strong>${esc(r.score || 0)}/10</strong></td>
+            <td>${esc(r.student?.email || "")}</td>
+          </tr>
+        `).join("")}
+      </tbody>
+    </table>
   `;
-
-  const body = rows.map(r => `
-    <tr>
-      <td>${esc(r.student?.fullName || "")}</td>
-      <td>${esc(r.student?.grade || "")}${esc(r.student?.letter || "")}</td>
-      <td>${esc(r.lessonId || "")}</td>
-      <td><strong>${esc(r.score || 0)}/10</strong></td>
-      <td>${esc(r.student?.email || "")}</td>
-    </tr>
-  `).join("");
-
-  return head + body + "</tbody></table>";
 }
