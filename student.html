@@ -1,44 +1,241 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>KOMEK_CODE — Ученик</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KOMEK CODE — Модуль 1. Урок 1</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <main class="page">
-    <h1>Кабинет ученика</h1>
-    <p class="muted" id="who"></p>
+  <div class="bg-shape shape-1"></div>
+  <div class="bg-shape shape-2"></div>
+  <div class="bg-shape shape-3"></div>
 
-    <section class="card">
-      <h2>Модули</h2>
-      <div class="row">
-        <button class="btn">HTML</button>
-        <button class="btn primary">CSS</button>
-        <button class="btn">JavaScript</button>
+  <main class="lesson-page">
+    <header class="lesson-topbar">
+      <div class="brand">
+        <div class="brand-logo">KC</div>
+        <div>
+          <div class="brand-title">KOMEK CODE</div>
+          <div class="brand-subtitle">кабинет ученика</div>
+        </div>
+      </div>
+
+      <div class="lesson-top-actions">
+        <a class="ghost-btn" href="index.html">На главную</a>
+      </div>
+    </header>
+
+    <section class="lesson-hero">
+      <div class="lesson-hero-left">
+        <div class="hero-badge">Модуль 1 · HTML · 10 класс</div>
+        <h1>Урок 1. Первая web-страница</h1>
+        <p class="hero-text" id="who">
+          Вы вошли: ...
+        </p>
+      </div>
+
+      <div class="lesson-progress-card">
+        <div class="progress-card-title">Прогресс урока</div>
+        <div class="progress-text">
+          <span>Выполнение</span>
+          <strong id="lessonProgressText">0%</strong>
+        </div>
+        <div class="progress-line">
+          <div class="progress-fill" id="lessonProgressFill" style="width:0%"></div>
+        </div>
       </div>
     </section>
 
-    <section class="card">
-      <h2>Задание 14.3 — CSS “Баянаул”</h2>
-      <p class="muted">Нажми “Проверить”, затем “Сдать”. Балл сохранится.</p>
+    <section class="lesson-layout">
+      <aside class="lesson-sidebar">
+        <div class="sidebar-card">
+          <div class="sidebar-title">Структура урока</div>
+          <button class="lesson-nav-btn active" data-target="goalBlock">Цель урока</button>
+          <button class="lesson-nav-btn" data-target="theoryBlock">1. Теория</button>
+          <button class="lesson-nav-btn" data-target="lifeBlock">2. Пример из жизни</button>
+          <button class="lesson-nav-btn" data-target="regionBlock">3. Региональный компонент</button>
+          <button class="lesson-nav-btn" data-target="trainerBlock">4. Тренажёр</button>
+          <button class="lesson-nav-btn" data-target="practiceBlock">5. Практика</button>
+          <button class="lesson-nav-btn" data-target="reflectionBlock">6. Рефлексия</button>
+        </div>
 
-      <textarea id="cssInput" class="textarea">.bayan-card{
-  border-radius: 15px;
-  color: #005a8a;
-  background-image: linear-gradient(135deg, rgba(14,165,165,.18), rgba(0,90,138,.10));
-}</textarea>
+        <div class="sidebar-card">
+          <div class="sidebar-title">Модули</div>
+          <div class="mini-module html-mini active">HTML</div>
+          <div class="mini-module css-mini">CSS</div>
+          <div class="mini-module js-mini">JavaScript</div>
+        </div>
+      </aside>
 
-      <div class="row">
-        <button class="btn" id="checkBtn">Проверить</button>
-        <button class="btn primary" id="submitBtn">Сдать</button>
-      </div>
+      <section class="lesson-content">
 
-      <div class="muted" id="status" style="margin-top:10px;"></div>
+        <article class="content-card" id="goalBlock">
+          <div class="card-chip">Цель обучения</div>
+          <h2>10.4.2.1 — использовать HTML-теги при разработке web-страниц</h2>
+          <p>
+            К концу урока ты поймёшь, что такое HTML, узнаешь базовую структуру
+            web-страницы и создашь свою первую простую страницу с заголовком и текстом.
+          </p>
+          <div class="info-note">
+            <strong>Кратко:</strong> сегодня ты научишься создавать “скелет” сайта.
+          </div>
+        </article>
+
+        <article class="content-card" id="theoryBlock">
+          <div class="card-chip">1 этап · Теория · 7–9 мин</div>
+          <h2>Что такое HTML?</h2>
+          <p>
+            HTML — это язык разметки, с помощью которого создают структуру web-страницы:
+            заголовки, абзацы, изображения, списки и ссылки.
+          </p>
+
+          <div class="theory-grid">
+            <div class="theory-item">
+              <h3>&lt;html&gt;</h3>
+              <p>Весь HTML-документ целиком.</p>
+            </div>
+            <div class="theory-item">
+              <h3>&lt;head&gt;</h3>
+              <p>Служебная часть страницы, например заголовок вкладки.</p>
+            </div>
+            <div class="theory-item">
+              <h3>&lt;body&gt;</h3>
+              <p>То, что пользователь видит на странице.</p>
+            </div>
+            <div class="theory-item">
+              <h3>&lt;h1&gt; и &lt;p&gt;</h3>
+              <p>Главный заголовок и обычный текст.</p>
+            </div>
+          </div>
+
+          <div class="code-demo">
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Моя первая страница&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Привет!&lt;/h1&gt;
+    &lt;p&gt;Это моя первая web-страница.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+          </div>
+        </article>
+
+        <article class="content-card" id="lifeBlock">
+          <div class="card-chip">Пример из жизни</div>
+          <h2>Где это может пригодиться?</h2>
+          <p>
+            Представь, что школе нужен мини-сайт кружка или страница о школьном проекте.
+            Чтобы разместить название, описание, расписание и полезную информацию,
+            сначала создают структуру страницы. Именно это делает HTML.
+          </p>
+        </article>
+
+        <article class="content-card" id="regionBlock">
+          <div class="card-chip">Региональный компонент</div>
+          <h2>Тема страницы о своём регионе</h2>
+          <p>
+            Для первого задания можно создать страницу на одну из тем:
+          </p>
+          <ul class="nice-list">
+            <li>Мой город</li>
+            <li>Достопримечательности Костанайской области</li>
+            <li>Моё любимое место в Казахстане</li>
+            <li>Природные места Казахстана</li>
+          </ul>
+          <div class="info-note">
+            Это поможет связать web-программирование с реальной жизнью и знакомыми темами.
+          </div>
+        </article>
+
+        <article class="content-card" id="trainerBlock">
+          <div class="card-chip">2 этап · Тренажёр · 10–15 мин</div>
+          <h2>Дополни HTML-код</h2>
+          <p>
+            Заполни пропуски так, чтобы получилась простая страница о городе или любимом месте.
+          </p>
+
+          <label class="lesson-label">Твой код</label>
+          <textarea id="htmlInput" class="lesson-textarea"><!DOCTYPE html>
+<html>
+  <head>
+    <title>Мой город</title>
+  </head>
+  <body>
+    <h1>Костанай</h1>
+    <p>Это город, в котором я живу и учусь.</p>
+  </body>
+</html></textarea>
+
+          <div class="lesson-btn-row">
+            <button class="lesson-btn secondary" id="checkBtn">Проверить</button>
+            <button class="lesson-btn primary" id="submitBtn">Сдать</button>
+            <div class="score-pill" id="scoreBadge">0/10</div>
+          </div>
+
+          <div class="validation-box">
+            <div class="validation-title">Проверка</div>
+            <div class="validation-item" id="checkHtml">• есть тег &lt;html&gt;</div>
+            <div class="validation-item" id="checkH1">• есть тег &lt;h1&gt;</div>
+            <div class="validation-item" id="checkP">• есть тег &lt;p&gt;</div>
+            <div class="validation-item" id="checkTitle">• есть тег &lt;title&gt;</div>
+          </div>
+
+          <div class="status-box" id="status">
+            Нажми «Проверить», чтобы увидеть результат.
+          </div>
+        </article>
+
+        <article class="content-card" id="practiceBlock">
+          <div class="card-chip">3 этап · Практика · 18 мин</div>
+          <h2>Практические задания с дифференциацией</h2>
+
+          <div class="practice-grid">
+            <div class="practice-card level1">
+              <div class="level-badge">Базовый уровень</div>
+              <h3>Задание 1</h3>
+              <p>
+                Создай простую страницу с заголовком и одним абзацем на тему
+                «Мой город» или «Моё любимое место».
+              </p>
+            </div>
+
+            <div class="practice-card level2">
+              <div class="level-badge">Средний уровень</div>
+              <h3>Задание 2</h3>
+              <p>
+                Добавь ещё один абзац и короткий список из 3 пунктов:
+                например, почему это место тебе нравится.
+              </p>
+            </div>
+
+            <div class="practice-card level3">
+              <div class="level-badge">Повышенный уровень</div>
+              <h3>Задание 3</h3>
+              <p>
+                Создай мини-страницу «Достопримечательности моего региона»
+                с заголовком, 2 абзацами и списком.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <article class="content-card" id="reflectionBlock">
+          <div class="card-chip">Рефлексия</div>
+          <h2>Подумай после урока</h2>
+          <ul class="nice-list">
+            <li>Что сегодня было самым понятным?</li>
+            <li>Какие теги ты уже запомнил?</li>
+            <li>Что хотелось бы попробовать на следующем уроке?</li>
+          </ul>
+        </article>
+
+      </section>
     </section>
-
-    <a class="muted small" href="index.html">← На главную</a>
   </main>
 
   <script type="module" src="student.js"></script>
