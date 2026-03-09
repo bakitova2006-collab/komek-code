@@ -3,46 +3,76 @@ import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/f
 import { doc, getDoc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const who = document.getElementById("who");
-const htmlInput = document.getElementById("htmlInput");
-const checkBtn = document.getElementById("checkBtn");
-const submitBtn = document.getElementById("submitBtn");
-const status = document.getElementById("status");
-const scoreBadge = document.getElementById("scoreBadge");
 
-const checkHtml = document.getElementById("checkHtml");
-const checkH1 = document.getElementById("checkH1");
-const checkP = document.getElementById("checkP");
-const checkTitle = document.getElementById("checkTitle");
+const toTrainerBtn = document.getElementById("toTrainerBtn");
+const toPracticeBtn = document.getElementById("toPracticeBtn");
+const openPracticeBtn = document.getElementById("openPracticeBtn");
+
+const theoryBlock = document.getElementById("theoryBlock");
+const trainerBlock = document.getElementById("trainerBlock");
+const practiceBlock = document.getElementById("practiceBlock");
+const reflectionBlock = document.getElementById("reflectionBlock");
+
+const trainerInput = document.getElementById("trainerInput");
+const checkTrainerBtn = document.getElementById("checkTrainerBtn");
+const trainerCheckH1 = document.getElementById("trainerCheckH1");
+const trainerCheckP = document.getElementById("trainerCheckP");
+const trainerStatus = document.getElementById("trainerStatus");
+
+const practiceEditor = document.getElementById("practiceEditor");
+const practiceInput = document.getElementById("practiceInput");
+const previewBtn = document.getElementById("previewBtn");
+const submitPracticeBtn = document.getElementById("submitPracticeBtn");
+const previewFrame = document.getElementById("previewFrame");
+const practiceStatus = document.getElementById("practiceStatus");
+const practiceScoreBadge = document.getElementById("practiceScoreBadge");
+
+const practiceCheckHtml = document.getElementById("practiceCheckHtml");
+const practiceCheckH1 = document.getElementById("practiceCheckH1");
+const practiceCheckP = document.getElementById("practiceCheckP");
+const practiceCheckTitle = document.getElementById("practiceCheckTitle");
 
 const lessonProgressText = document.getElementById("lessonProgressText");
 const lessonProgressFill = document.getElementById("lessonProgressFill");
 
-const LESSON_ID = "module1_lesson1_html_intro";
+const LESSON_ID = "module1_lesson1_html_intro_practice";
 
 let currentUser = null;
 let profile = null;
 
-function setStatus(text, type = "") {
-  status.textContent = text;
-  status.className = "status-box" + (type ? ` ${type}` : "");
-}
-
-function markItem(el, ok, text) {
-  el.textContent = `${ok ? "✔" : "✖"} ${text}`;
-  el.className = "validation-item " + (ok ? "ok" : "bad");
-}
-
-function normalize(s) {
-  return (s || "").toLowerCase();
-}
-
-function calculateProgress(score) {
-  const percent = Math.min(100, Math.max(0, score * 10));
+function setProgress(percent){
   lessonProgressText.textContent = percent + "%";
   lessonProgressFill.style.width = percent + "%";
 }
 
-function calcScore(code) {
+function unlockStep(block){
+  block.classList.remove("locked-step");
+  block.classList.add("active-step");
+}
+
+function setStatus(el, text, type = ""){
+  el.textContent = text;
+  el.className = "status-box" + (type ? ` ${type}` : "");
+}
+
+function markItem(el, ok, text){
+  el.textContent = `${ok ? "✔" : "✖"} ${text}`;
+  el.className = "validation-item " + (ok ? "ok" : "bad");
+}
+
+function normalize(s){
+  return (s || "").toLowerCase();
+}
+
+function calcTrainer(code){
+  const t = normalize(code);
+  return {
+    hasH1: t.includes("<h1"),
+    hasP: t.includes("<p")
+  };
+}
+
+function calcPractice(code){
   const t = normalize(code);
 
   const hasHtml = t.includes("<html");
@@ -61,14 +91,15 @@ function calcScore(code) {
 
 document.querySelectorAll(".lesson-nav-btn").forEach(btn => {
   btn.addEventListener("click", () => {
+    const targetId = btn.dataset.target;
+    const target = document.getElementById(targetId);
+
+    if (target.classList.contains("locked-step")) return;
+
     document.querySelectorAll(".lesson-nav-btn").forEach(b => b.classList.remove("active"));
     btn.classList.add("active");
 
-    const targetId = btn.dataset.target;
-    const target = document.getElementById(targetId);
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
   });
 });
 
@@ -86,29 +117,63 @@ onAuthStateChanged(auth, async (user) => {
   who.textContent = profile
     ? `Вы вошли: ${profile.fullName} • ${profile.grade}${profile.letter}`
     : `Вы вошли: ${user.email}`;
+
+  setProgress(25);
 });
 
-checkBtn.addEventListener("click", () => {
-  const result = calcScore(htmlInput.value);
-
-  markItem(checkHtml, result.hasHtml, "есть тег <html>");
-  markItem(checkH1, result.hasH1, "есть тег <h1>");
-  markItem(checkP, result.hasP, "есть тег <p>");
-  markItem(checkTitle, result.hasTitle, "есть тег <title>");
-
-  scoreBadge.textContent = `${result.score}/10`;
-  calculateProgress(result.score);
-
-  setStatus(`Проверка завершена: ${result.score}/10`, "ok");
+toTrainerBtn.addEventListener("click", () => {
+  unlockStep(trainerBlock);
+  setProgress(50);
+  trainerBlock.scrollIntoView({ behavior: "smooth", block: "start" });
 });
 
-submitBtn.addEventListener("click", async () => {
+checkTrainerBtn.addEventListener("click", () => {
+  const result = calcTrainer(trainerInput.value);
+
+  markItem(trainerCheckH1, result.hasH1, "есть тег <h1>");
+  markItem(trainerCheckP, result.hasP, "есть тег <p>");
+
+  if (result.hasH1 && result.hasP) {
+    setStatus(trainerStatus, "✅ Тренажёр выполнен. Теперь можно перейти к практике.", "ok");
+    toPracticeBtn.disabled = false;
+  } else {
+    setStatus(trainerStatus, "Нужно добавить оба тега: <h1> и <p>.", "");
+  }
+});
+
+toPracticeBtn.addEventListener("click", () => {
+  unlockStep(practiceBlock);
+  setProgress(75);
+  practiceBlock.scrollIntoView({ behavior: "smooth", block: "start" });
+});
+
+openPracticeBtn.addEventListener("click", () => {
+  practiceEditor.classList.remove("hidden");
+  practiceEditor.scrollIntoView({ behavior: "smooth", block: "start" });
+});
+
+previewBtn.addEventListener("click", () => {
+  const code = practiceInput.value;
+  previewFrame.srcdoc = code;
+
+  const result = calcPractice(code);
+
+  markItem(practiceCheckHtml, result.hasHtml, "есть тег <html>");
+  markItem(practiceCheckH1, result.hasH1, "есть тег <h1>");
+  markItem(practiceCheckP, result.hasP, "есть тег <p>");
+  markItem(practiceCheckTitle, result.hasTitle, "есть тег <title>");
+
+  practiceScoreBadge.textContent = `${result.score}/10`;
+  setStatus(practiceStatus, `Предпросмотр обновлён. Текущий результат: ${result.score}/10`, "ok");
+});
+
+submitPracticeBtn.addEventListener("click", async () => {
   if (!currentUser) return;
 
-  const result = calcScore(htmlInput.value);
+  const code = practiceInput.value;
+  const result = calcPractice(code);
 
-  scoreBadge.textContent = `${result.score}/10`;
-  calculateProgress(result.score);
+  previewFrame.srcdoc = code;
 
   const payload = {
     lessonId: LESSON_ID,
@@ -121,7 +186,7 @@ submitBtn.addEventListener("click", async () => {
       p: result.hasP,
       title: result.hasTitle
     },
-    code: htmlInput.value,
+    code,
     student: {
       uid: currentUser.uid,
       email: currentUser.email,
@@ -134,5 +199,9 @@ submitBtn.addEventListener("click", async () => {
 
   await setDoc(doc(db, "submissions", `${LESSON_ID}_${currentUser.uid}`), payload, { merge: true });
 
-  setStatus(`✅ Работа сохранена. Балл: ${result.score}/10`, "ok");
+  practiceScoreBadge.textContent = `${result.score}/10`;
+  setStatus(practiceStatus, `✅ Практическая работа сдана учителю. Балл: ${result.score}/10`, "ok");
+
+  unlockStep(reflectionBlock);
+  setProgress(100);
 });
