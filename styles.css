@@ -973,6 +973,56 @@ body{
     font-size:34px;
   }
 
+
+  .lesson-step.locked-step{
+  opacity:.55;
+  pointer-events:none;
+  filter:grayscale(.08);
+}
+
+.lesson-step.active-step{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.step-actions{
+  margin-top:18px;
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.practice-editor{
+  margin-top:22px;
+  padding-top:18px;
+  border-top:1px solid var(--line);
+}
+
+.hidden{
+  display:none;
+}
+
+.editor-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+  align-items:start;
+}
+
+.preview-frame{
+  width:100%;
+  min-height:420px;
+  border:1px solid var(--line);
+  border-radius:20px;
+  background:white;
+}
+
+@media (max-width: 900px){
+  .editor-grid{
+    grid-template-columns:1fr;
+  }
+}
+
   .hero-text{
     font-size:16px;
   }
