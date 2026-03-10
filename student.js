@@ -2,8 +2,8 @@ import { auth, db } from "./firebase-init.js";
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 import { doc, getDoc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-const LESSON_ID = "module1_lesson1_html_intro_final";
-const DRAFT_KEY = "komek_draft_module1_lesson1";
+const LESSON_ID = "module1_lesson2_html_text_lists";
+const DRAFT_KEY = "komek_draft_module1_lesson2";
 
 const who = document.getElementById("who");
 
@@ -25,8 +25,9 @@ const completeTheoryBtn = document.getElementById("completeTheoryBtn");
 
 const trainerInput = document.getElementById("trainerInput");
 const checkTrainerBtn = document.getElementById("checkTrainerBtn");
-const trainerCheckH1 = document.getElementById("trainerCheckH1");
 const trainerCheckP = document.getElementById("trainerCheckP");
+const trainerCheckList = document.getElementById("trainerCheckList");
+const trainerCheckLi = document.getElementById("trainerCheckLi");
 const trainerStatus = document.getElementById("trainerStatus");
 const openPracticeStepBtn = document.getElementById("openPracticeStepBtn");
 
@@ -38,10 +39,10 @@ const previewFrame = document.getElementById("previewFrame");
 const practiceStatus = document.getElementById("practiceStatus");
 const practiceScoreBadge = document.getElementById("practiceScoreBadge");
 
-const practiceCheckHtml = document.getElementById("practiceCheckHtml");
-const practiceCheckTitle = document.getElementById("practiceCheckTitle");
 const practiceCheckH1 = document.getElementById("practiceCheckH1");
 const practiceCheckP = document.getElementById("practiceCheckP");
+const practiceCheckList = document.getElementById("practiceCheckList");
+const practiceCheckLi = document.getElementById("practiceCheckLi");
 
 let currentUser = null;
 let profile = null;
@@ -80,26 +81,27 @@ function setStatus(el, text, type = ""){
 function calcTrainer(code){
   const t = normalize(code);
   return {
-    hasH1: t.includes("<h1"),
-    hasP: t.includes("<p")
+    hasP: t.includes("<p"),
+    hasList: t.includes("<ul") || t.includes("<ol"),
+    hasLi: t.includes("<li")
   };
 }
 
 function calcPractice(code){
   const t = normalize(code);
 
-  const hasHtml = t.includes("<html");
-  const hasTitle = t.includes("<title");
   const hasH1 = t.includes("<h1");
   const hasP = t.includes("<p");
+  const hasList = t.includes("<ul") || t.includes("<ol");
+  const hasLi = t.includes("<li");
 
   let score = 0;
-  if (hasHtml) score += 2;
-  if (hasTitle) score += 2;
-  if (hasH1) score += 3;
+  if (hasH1) score += 2;
   if (hasP) score += 3;
+  if (hasList) score += 2;
+  if (hasLi) score += 3;
 
-  return { score, hasHtml, hasTitle, hasH1, hasP };
+  return { score, hasH1, hasP, hasList, hasLi };
 }
 
 function updateSidebarStates(){
@@ -164,17 +166,18 @@ completeTheoryBtn.addEventListener("click", () => {
 checkTrainerBtn.addEventListener("click", () => {
   const result = calcTrainer(trainerInput.value);
 
-  markItem(trainerCheckH1, result.hasH1, "есть тег <h1>");
   markItem(trainerCheckP, result.hasP, "есть тег <p>");
+  markItem(trainerCheckList, result.hasList, "есть список <ul> или <ol>");
+  markItem(trainerCheckLi, result.hasLi, "есть элементы списка <li>");
 
-  if (result.hasH1 && result.hasP) {
+  if (result.hasP && result.hasList && result.hasLi) {
     lessonState.trainerDone = true;
     unlockStep(stepPractice);
     openPracticeStepBtn.disabled = false;
     setStatus(trainerStatus, "✅ Тренажёр выполнен. Теперь можно перейти к практике.", "ok");
     updateLessonProgress();
   } else {
-    setStatus(trainerStatus, "Добавь оба тега: <h1> и <p>.", "");
+    setStatus(trainerStatus, "Добавь абзац и корректный список.", "");
   }
 });
 
@@ -195,10 +198,10 @@ previewBtn.addEventListener("click", () => {
 
   const result = calcPractice(code);
 
-  markItem(practiceCheckHtml, result.hasHtml, "есть тег <html>");
-  markItem(practiceCheckTitle, result.hasTitle, "есть тег <title>");
   markItem(practiceCheckH1, result.hasH1, "есть тег <h1>");
   markItem(practiceCheckP, result.hasP, "есть тег <p>");
+  markItem(practiceCheckList, result.hasList, "есть список <ul> или <ol>");
+  markItem(practiceCheckLi, result.hasLi, "есть элементы списка <li>");
 
   practiceScoreBadge.textContent = `${result.score}/10`;
   setStatus(practiceStatus, `Предпросмотр обновлён. Текущий результат: ${result.score}/10`, "ok");
@@ -216,13 +219,13 @@ submitPracticeBtn.addEventListener("click", async () => {
   const payload = {
     lessonId: LESSON_ID,
     module: "HTML",
-    title: "Первая web-страница",
+    title: "Текст и списки в HTML",
     score: result.score,
     checks: {
-      html: result.hasHtml,
-      title: result.hasTitle,
       h1: result.hasH1,
-      p: result.hasP
+      p: result.hasP,
+      list: result.hasList,
+      li: result.hasLi
     },
     code,
     student: {
