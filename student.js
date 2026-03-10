@@ -244,10 +244,11 @@ submitPracticeBtn.addEventListener("click", async () => {
   setStatus(practiceStatus, `✅ Практическая работа сдана учителю. Балл: ${result.score}/10`, "ok");
 
   lessonState.practiceDone = true;
-  showLessonCompleted();
   unlockStep(stepReflection);
   updateLessonProgress();
   stepReflection.scrollIntoView({ behavior: "smooth", block: "start" });
+
+  showLessonCompleted();
 });
 
 onAuthStateChanged(auth, async (user) => {
@@ -270,32 +271,23 @@ onAuthStateChanged(auth, async (user) => {
 });
 
 function showLessonCompleted(){
+  const popup = document.createElement("div");
+  popup.className = "lesson-popup";
 
-const popup = document.createElement("div");
+  popup.innerHTML = `
+    <div class="lesson-popup-card">
+      <h2>Урок завершён 🎉</h2>
+      <p>Отличная работа! Ты успешно завершил(а) этот урок.</p>
+      <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:16px;">
+        <button id="closePopup" class="lesson-btn secondary">Остаться на уроке</button>
+        <a href="student-home.html" class="lesson-btn primary">В кабинет ученика</a>
+      </div>
+    </div>
+  `;
 
-popup.className = "lesson-popup";
+  document.body.appendChild(popup);
 
-popup.innerHTML = `
-<div class="lesson-popup-card">
-
-<h2>Урок завершён 🎉</h2>
-
-<p>
-Отличная работа!  
-Ты успешно завершил этот урок.
-</p>
-
-<button id="closePopup" class="lesson-btn primary">
-Продолжить
-</button>
-
-</div>
-`;
-
-document.body.appendChild(popup);
-
-document.getElementById("closePopup").onclick = ()=>{
-popup.remove();
-};
-
+  document.getElementById("closePopup").onclick = () => {
+    popup.remove();
+  };
 }
