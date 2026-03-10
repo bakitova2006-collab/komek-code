@@ -163,7 +163,7 @@ btnRegister.addEventListener("click", async () => {
       location.href = "student.html";
     } else {
       setHint(msg, "✅ Учитель зарегистрирован. Переходим в кабинет учителя...", "ok");
-      location.href = "teacher.html";
+      location.href = "student-home.html";
     }
   } catch(e){
     setHint(msg, firebaseErrorToText(e.code), "error");
