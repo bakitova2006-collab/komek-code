@@ -268,3 +268,34 @@ onAuthStateChanged(auth, async (user) => {
   loadDraftLocal();
   updateLessonProgress();
 });
+
+function showLessonCompleted(){
+
+const popup = document.createElement("div");
+
+popup.className = "lesson-popup";
+
+popup.innerHTML = `
+<div class="lesson-popup-card">
+
+<h2>Урок завершён 🎉</h2>
+
+<p>
+Отличная работа!  
+Ты успешно завершил этот урок.
+</p>
+
+<button id="closePopup" class="lesson-btn primary">
+Продолжить
+</button>
+
+</div>
+`;
+
+document.body.appendChild(popup);
+
+document.getElementById("closePopup").onclick = ()=>{
+popup.remove();
+};
+
+}
