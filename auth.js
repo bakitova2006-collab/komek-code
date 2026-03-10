@@ -1,13 +1,13 @@
 import { auth, db } from "./firebase-init.js";
 import {
   signInWithEmailAndPassword,
-  createUserWithEmailAndPassword
+  createUserWithEmailAndPassword,
+  sendPasswordResetEmail
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 import {
   doc, setDoc, serverTimestamp
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-// ВАЖНО: впиши сюда свой email учителя
 const TEACHER_EMAILS = [
   "bakitova2006@gmail.com"
 ];
@@ -33,7 +33,9 @@ const btnLogin = document.getElementById("btnLogin");
 const btnRegister = document.getElementById("btnRegister");
 const btnReset = document.getElementById("btnReset");
 
-studentFields.hidden = role !== "student";
+if (studentFields) {
+  studentFields.hidden = role !== "student";
+}
 
 function setHint(el, text, type){
   if(!el) return;
@@ -49,11 +51,14 @@ function clearHints(){
   setHint(msg, "");
 }
 
-function isTeacherEmail(email){
-  return TEACHER_EMAILS.map(e => e.toLowerCase()).includes((email || "").toLowerCase());
+function normalizeEmail(email){
+  return (email || "").trim().toLowerCase();
 }
 
-// Простая проверка email
+function isTeacherEmail(email){
+  return TEACHER_EMAILS.includes(normalizeEmail(email));
+}
+
 function looksLikeEmail(email){
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
@@ -85,7 +90,6 @@ function validateForm(isRegister){
     setHint(passHint, "Ок", "ok");
   }
 
-  // Для ученика при регистрации проверим доп. поля
   if(role === "student" && isRegister){
     const name = (fullNameEl?.value || "").trim();
     const letter = (letterEl?.value || "").trim();
@@ -105,9 +109,8 @@ function validateForm(isRegister){
     }
   }
 
-  // Для учителя проверим доступ по email
   if(role === "teacher" && !isTeacherEmail(email)){
-    setHint(msg, "Этот email не имеет доступа учителя. Проверь TEACHER_EMAILS в коде.", "error");
+    setHint(msg, "Этот email не имеет доступа учителя. Войдите с bakitova2006@gmail.com", "error");
     ok = false;
   }
 
@@ -115,7 +118,6 @@ function validateForm(isRegister){
 }
 
 function firebaseErrorToText(code){
-  // самые частые и понятные
   switch(code){
     case "auth/invalid-email":
       return "Неверный формат email.";
@@ -124,16 +126,16 @@ function firebaseErrorToText(code){
     case "auth/weak-password":
       return "Слишком простой пароль. Минимум 6 символов.";
     case "auth/email-already-in-use":
-      return "Этот email уже зарегистрирован. Нажмите “Войти”.";
+      return "Этот email уже зарегистрирован. Нажмите «Войти».";
     case "auth/user-not-found":
-      return "Пользователь не найден. Сначала нажмите “Регистрация”.";
+      return "Пользователь не найден. Сначала нажмите «Регистрация».";
     case "auth/wrong-password":
     case "auth/invalid-credential":
-      return "Неверный пароль (или email). Проверьте данные.";
+      return "Неверный пароль или email. Проверьте данные.";
     case "auth/too-many-requests":
       return "Слишком много попыток. Подождите немного и попробуйте снова.";
     case "auth/network-request-failed":
-      return "Проблема с интернетом или блокировка запросов. Попробуйте другой браузер/инкогнито.";
+      return "Проблема с интернетом. Попробуйте ещё раз.";
     default:
       return `Ошибка: ${code}`;
   }
@@ -145,7 +147,7 @@ btnRegister.addEventListener("click", async () => {
 
   try{
     setHint(msg, "Регистрируем...", "");
-    const email = emailEl.value.trim();
+    const email = normalizeEmail(emailEl.value);
     const pass = passEl.value;
 
     const cred = await createUserWithEmailAndPassword(auth, email, pass);
@@ -160,10 +162,10 @@ btnRegister.addEventListener("click", async () => {
       }, { merge: true });
 
       setHint(msg, "✅ Регистрация успешна! Переходим в кабинет ученика...", "ok");
-      location.href = "student.html";
+      location.href = "student-home.html";
     } else {
       setHint(msg, "✅ Учитель зарегистрирован. Переходим в кабинет учителя...", "ok");
-      location.href = "student-home.html";
+      location.href = "teacher.html";
     }
   } catch(e){
     setHint(msg, firebaseErrorToText(e.code), "error");
@@ -176,34 +178,30 @@ btnLogin.addEventListener("click", async () => {
 
   try{
     setHint(msg, "Входим...", "");
-    const email = emailEl.value.trim();
+    const email = normalizeEmail(emailEl.value);
     const pass = passEl.value;
 
     await signInWithEmailAndPassword(auth, email, pass);
 
     setHint(msg, "✅ Вход успешен! Открываем кабинет...", "ok");
-    location.href = (role === "teacher") ? "teacher.html" : "student.html";
+    location.href = (role === "teacher") ? "teacher.html" : "student-home.html";
   } catch(e){
     setHint(msg, firebaseErrorToText(e.code), "error");
   }
 });
 
-import { sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-
 btnReset.addEventListener("click", async () => {
-
-  const email = emailEl.value.trim();
+  const email = normalizeEmail(emailEl.value);
 
   if(!email){
-    setHint(msg, "Введите email для восстановления пароля", "error");
+    setHint(msg, "Введите email для восстановления пароля.", "error");
     return;
   }
 
   try{
     await sendPasswordResetEmail(auth, email);
     setHint(msg, "Письмо для восстановления отправлено на почту.", "ok");
-  }catch(e){
-    setHint(msg, "Ошибка: " + e.message, "error");
+  } catch(e){
+    setHint(msg, firebaseErrorToText(e.code), "error");
   }
-
 });
