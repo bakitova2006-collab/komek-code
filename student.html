@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KOMEK CODE — Модуль 1 · Урок 1</title>
+  <title>KOMEK CODE — Модуль 1 · Урок 2</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -29,11 +29,11 @@
     <section class="lesson-header-card">
       <div class="lesson-header-left">
         <div class="hero-badge">Модуль 1 · HTML · 10 класс</div>
-        <h1 class="lesson-main-title">Урок 1. Первая web-страница</h1>
+        <h1 class="lesson-main-title">Урок 2. Текст и списки в HTML</h1>
         <p class="lesson-main-subtitle" id="who">Вы вошли: ...</p>
 
         <div class="meta-row">
-          <div class="meta-pill">Тема: структура HTML-документа</div>
+          <div class="meta-pill">Тема: оформление содержания страницы</div>
           <div class="meta-pill">Финальная сдача: только практика</div>
           <div class="meta-pill">Формат: теория → тренажёр → практика → рефлексия</div>
         </div>
@@ -85,20 +85,20 @@
         </div>
 
         <div class="sidebar-card">
-          <div class="sidebar-title">Цель обучения</div>
+          <div class="sidebar-title">Цель урока</div>
           <p class="muted">
-            10.4.2.1 — использовать HTML-теги при разработке web-страниц.
+            Продолжить работу с HTML-тегами: оформлять текст страницы с помощью заголовков, абзацев и списков.
           </p>
         </div>
 
         <div class="sidebar-card">
           <div class="sidebar-title">Что оценивается</div>
           <ul class="sidebar-list">
-            <li>структура HTML</li>
-            <li>наличие title</li>
             <li>наличие h1</li>
             <li>наличие p</li>
-            <li>осмысленность содержания</li>
+            <li>наличие списка ul или ol</li>
+            <li>осмысленный текст по теме</li>
+            <li>правильная структура страницы</li>
           </ul>
         </div>
       </aside>
@@ -116,69 +116,66 @@
           </div>
 
           <div class="lesson-block">
-            <h3>Что такое HTML</h3>
+            <h3>Как оформить содержание страницы</h3>
             <p>
-              HTML — это язык разметки, который задаёт структуру web-страницы:
-              где будет заголовок, где текст, где список, изображение или ссылка.
+              После того как структура документа создана, страницу нужно наполнить содержанием.
+              Для этого часто используют заголовки, абзацы и списки.
             </p>
           </div>
 
           <div class="concept-grid">
-            <div class="concept-card">
-              <h4>&lt;html&gt;</h4>
-              <p>Контейнер всего документа.</p>
-            </div>
-            <div class="concept-card">
-              <h4>&lt;head&gt;</h4>
-              <p>Служебная часть страницы.</p>
-            </div>
-            <div class="concept-card">
-              <h4>&lt;title&gt;</h4>
-              <p>Название вкладки браузера.</p>
-            </div>
-            <div class="concept-card">
-              <h4>&lt;body&gt;</h4>
-              <p>Всё, что видит пользователь.</p>
-            </div>
             <div class="concept-card">
               <h4>&lt;h1&gt;</h4>
               <p>Главный заголовок страницы.</p>
             </div>
             <div class="concept-card">
               <h4>&lt;p&gt;</h4>
-              <p>Абзац обычного текста.</p>
+              <p>Абзац текста.</p>
+            </div>
+            <div class="concept-card">
+              <h4>&lt;ul&gt;</h4>
+              <p>Маркированный список.</p>
+            </div>
+            <div class="concept-card">
+              <h4>&lt;ol&gt;</h4>
+              <p>Нумерованный список.</p>
+            </div>
+            <div class="concept-card">
+              <h4>&lt;li&gt;</h4>
+              <p>Элемент списка.</p>
+            </div>
+            <div class="concept-card">
+              <h4>Смысл текста</h4>
+              <p>Страница должна быть не только правильной, но и понятной.</p>
             </div>
           </div>
 
           <div class="example-panel">
             <div class="example-title">Пример из жизни</div>
             <p>
-              Если школьному кружку нужен сайт-визитка, сначала создают структуру:
-              название кружка, описание, расписание и полезную информацию.
-              Именно это и делает HTML.
+              Если ты делаешь страницу о школьном мероприятии, на ней удобно разместить:
+              название события, короткое описание и список того, что будет происходить.
             </p>
           </div>
 
           <div class="example-panel region-panel">
             <div class="example-title">Региональный компонент</div>
             <p>
-              Для первого задания можно выбрать тему, связанную с родным краем:
-              Костанай, Баянаул, Наурзумский заповедник, любимое место в Казахстане.
+              Для темы урока можно выбрать «Интересные места Костанайской области»
+              или «3 причины посетить мой город».
             </p>
           </div>
 
           <div class="code-demo">
 <pre>
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-  &lt;head&gt;
-    &lt;title&gt;Моя первая страница&lt;/title&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-    &lt;h1&gt;Привет!&lt;/h1&gt;
-    &lt;p&gt;Это моя первая web-страница.&lt;/p&gt;
-  &lt;/body&gt;
-&lt;/html&gt;
+&lt;h1&gt;Мой город&lt;/h1&gt;
+&lt;p&gt;Я хочу рассказать о своём городе.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Красивые места&lt;/li&gt;
+  &lt;li&gt;Интересные факты&lt;/li&gt;
+  &lt;li&gt;Почему он мне нравится&lt;/li&gt;
+&lt;/ul&gt;
 </pre>
           </div>
 
@@ -202,13 +199,12 @@
           </div>
 
           <p>
-            Это тренировочный этап. Здесь нужно дописать недостающие теги.
-            Баллы учителю за этот этап не отправляются.
+            Добавь в код абзац и список. Это тренировочный этап — он нужен для подготовки к практике.
           </p>
 
           <div class="trainer-task-box">
             <div class="trainer-task-title">Задание</div>
-            <p>Добавь в код заголовок <code>&lt;h1&gt;</code> и абзац <code>&lt;p&gt;</code>.</p>
+            <p>Нужно дописать один тег <code>&lt;p&gt;</code> и один список <code>&lt;ul&gt;</code> с элементами <code>&lt;li&gt;</code>.</p>
           </div>
 
           <textarea id="trainerInput" class="lesson-textarea"><!DOCTYPE html>
@@ -217,8 +213,9 @@
     <title>Мой город</title>
   </head>
   <body>
-    <!-- Добавь здесь заголовок h1 -->
-    <!-- Добавь здесь абзац p -->
+    <h1>Костанай</h1>
+    <!-- Добавь здесь абзац -->
+    <!-- Добавь здесь список -->
   </body>
 </html></textarea>
 
@@ -228,8 +225,9 @@
 
           <div class="validation-box">
             <div class="validation-title">Проверка</div>
-            <div class="validation-item" id="trainerCheckH1">• есть тег &lt;h1&gt;</div>
             <div class="validation-item" id="trainerCheckP">• есть тег &lt;p&gt;</div>
+            <div class="validation-item" id="trainerCheckList">• есть список &lt;ul&gt; или &lt;ol&gt;</div>
+            <div class="validation-item" id="trainerCheckLi">• есть элементы списка &lt;li&gt;</div>
           </div>
 
           <div class="status-box" id="trainerStatus">
@@ -259,19 +257,19 @@
             <div class="practice-level-card basic">
               <div class="level-badge">Базовый</div>
               <h3>Минимум</h3>
-              <p>Заголовок + 1 абзац на тему «Мой город».</p>
+              <p>Заголовок, абзац и простой список по теме «Мой город».</p>
             </div>
 
             <div class="practice-level-card medium">
               <div class="level-badge">Средний</div>
               <h3>Лучше</h3>
-              <p>Добавь второй абзац или небольшой список.</p>
+              <p>Добавь второй абзац и сделай более содержательный список.</p>
             </div>
 
             <div class="practice-level-card strong">
               <div class="level-badge">Повышенный</div>
               <h3>Творческий</h3>
-              <p>Сделай мини-страницу о достопримечательности своего региона.</p>
+              <p>Создай мини-страницу о местах своего региона: заголовок, 2 абзаца и список.</p>
             </div>
           </div>
 
@@ -293,19 +291,25 @@
   <body>
     <h1>Костанай</h1>
     <p>Костанай — город, в котором я живу и учусь.</p>
+
+    <ul>
+      <li>Красивые улицы</li>
+      <li>Интересные места</li>
+      <li>Уютная атмосфера</li>
+    </ul>
   </body>
 </html></textarea>
 
               <div class="validation-box">
                 <div class="validation-title">Критерии проверки</div>
-                <div class="validation-item" id="practiceCheckHtml">• есть тег &lt;html&gt;</div>
-                <div class="validation-item" id="practiceCheckTitle">• есть тег &lt;title&gt;</div>
                 <div class="validation-item" id="practiceCheckH1">• есть тег &lt;h1&gt;</div>
                 <div class="validation-item" id="practiceCheckP">• есть тег &lt;p&gt;</div>
+                <div class="validation-item" id="practiceCheckList">• есть список &lt;ul&gt; или &lt;ol&gt;</div>
+                <div class="validation-item" id="practiceCheckLi">• есть элементы списка &lt;li&gt;</div>
               </div>
 
               <div class="status-box" id="practiceStatus">
-                Напиши код, нажми «Показать результат», затем «Сдать учителю».
+                Напиши код, покажи результат и сдай работу учителю.
               </div>
             </div>
 
@@ -316,8 +320,7 @@
               <div class="helper-box">
                 <div class="helper-title">Подсказка</div>
                 <p>
-                  Не забывай: страница должна быть не просто технически правильной,
-                  но и содержательной. Пусть заголовок и текст относятся к выбранной теме.
+                  Список нужен не для галочки: он должен помогать читателю быстро увидеть важную информацию.
                 </p>
               </div>
             </div>
@@ -340,25 +343,26 @@
 
           <div class="reflection-grid">
             <div class="reflection-card">
-              <h3>Что было самым понятным?</h3>
-              <p>Какие теги ты запомнил(а) лучше всего?</p>
+              <h3>Что получилось хорошо?</h3>
+              <p>Какая часть страницы была самой лёгкой?</p>
             </div>
 
             <div class="reflection-card">
-              <h3>Что вызвало затруднение?</h3>
-              <p>Что хотелось бы повторить ещё раз?</p>
+              <h3>Что было труднее?</h3>
+              <p>Что оказалось сложнее: абзацы или списки?</p>
             </div>
 
             <div class="reflection-card">
               <h3>Что дальше?</h3>
-              <p>На следующем уроке можно перейти к тексту, спискам и изображениям.</p>
+              <p>Следующий шаг — изображения и ссылки на странице.</p>
             </div>
           </div>
 
           <div class="status-box ok" id="finalStatus">
-            Урок завершён. Отличная работа!
+            Урок завершён. Молодец!
           </div>
         </article>
+
       </section>
     </section>
   </main>
