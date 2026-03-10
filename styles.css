@@ -973,8 +973,12 @@ body{
     font-size:34px;
   }
 
+  .hero-text{
+    font-size:16px;
+  }
+}
 
-  .lesson-step.locked-step{
+.lesson-step.locked-step{
   opacity:.55;
   pointer-events:none;
   filter:grayscale(.08);
@@ -1020,11 +1024,6 @@ body{
 @media (max-width: 900px){
   .editor-grid{
     grid-template-columns:1fr;
-  }
-}
-
-  .hero-text{
-    font-size:16px;
   }
 }
 
