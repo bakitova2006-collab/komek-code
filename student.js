@@ -244,6 +244,7 @@ submitPracticeBtn.addEventListener("click", async () => {
   setStatus(practiceStatus, `✅ Практическая работа сдана учителю. Балл: ${result.score}/10`, "ok");
 
   lessonState.practiceDone = true;
+  showLessonCompleted();
   unlockStep(stepReflection);
   updateLessonProgress();
   stepReflection.scrollIntoView({ behavior: "smooth", block: "start" });
