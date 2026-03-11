@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>KOMEK CODE — Модуль 1 · Урок 3</title>
+
+<link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+
+<div class="bg-shape shape-1"></div>
+<div class="bg-shape shape-2"></div>
+<div class="bg-shape shape-3"></div>
+
+<main class="stepik-page">
+
+<header class="stepik-topbar">
+
+<div class="brand">
+
+<div class="brand-logo">KC</div>
+
+<div>
+<div class="brand-title">KOMEK CODE</div>
+<div class="brand-subtitle">урок в формате step-by-step</div>
+</div>
+
+</div>
+
+<div class="stepik-top-actions">
+<a class="ghost-btn" href="student-home.html">К урокам</a>
+</div>
+
+</header>
+
+<section class="lesson-header-card">
+
+<div>
+
+<div class="hero-badge">
+Модуль 1 · HTML · 10 класс
+</div>
+
+<h1 class="lesson-main-title">
+Урок 3. Изображения и ссылки
+</h1>
+
+<p class="lesson-main-subtitle">
+Как добавлять картинки и переходы между страницами
+</p>
+
+</div>
+
+</section>
+
+<section class="lesson-main">
+
+<!-- ТЕОРИЯ -->
+
+<div class="lesson-step-card">
+
+<div class="step-head">
+<h2>Теория</h2>
+</div>
+
+<p>
+
+На веб-страницах часто размещают изображения и ссылки.
+
+</p>
+
+<h3>Тег изображения</h3>
+
+<div class="code-demo">
+<pre>
+
+<img src="image.jpg">
+
+</pre>
+</div>
+
+<p>
+
+Тег <b>img</b> показывает изображение на странице.
+
+</p>
+
+<h3>Тег ссылки</h3>
+
+<div class="code-demo">
+<pre>
+
+<a href="https://google.com">
+Перейти на сайт
+</a>
+
+</pre>
+</div>
+
+<p>
+
+Тег <b>a</b> создаёт ссылку, по которой можно перейти на другую страницу.
+
+</p>
+
+</div>
+
+
+<!-- ПРИМЕР -->
+
+<div class="lesson-step-card">
+
+<div class="step-head">
+<h2>Пример из жизни</h2>
+</div>
+
+<p>
+
+Например на странице школы можно разместить:
+
+</p>
+
+<ul class="nice-list">
+
+<li>фотографию школы</li>
+<li>ссылку на официальный сайт</li>
+<li>ссылку на страницу новостей</li>
+
+</ul>
+
+</div>
+
+
+<!-- ТРЕНАЖЕР -->
+
+<div class="lesson-step-card">
+
+<div class="step-head">
+<h2>Тренажёр</h2>
+</div>
+
+<p>
+
+Добавь изображение и ссылку в код.
+
+</p>
+
+<textarea id="trainerCode" class="lesson-textarea">
+
+<h1>Мой город</h1>
+
+<!-- Добавь изображение -->
+
+<!-- Добавь ссылку -->
+
+</textarea>
+
+<div class="lesson-btn-row">
+
+<button class="lesson-btn secondary" id="checkTrainer">
+Проверить
+</button>
+
+</div>
+
+<div id="trainerResult" class="status-box">
+
+</div>
+
+</div>
+
+
+<!-- ПРАКТИКА -->
+
+<div class="lesson-step-card">
+
+<div class="step-head">
+<h2>Практика</h2>
+</div>
+
+<p>
+
+Создай страницу о своём городе.
+
+</p>
+
+<ul class="nice-list">
+
+<li>Добавь заголовок</li>
+<li>Добавь изображение</li>
+<li>Добавь ссылку на любой сайт</li>
+
+</ul>
+
+<textarea id="practiceCode" class="lesson-textarea lesson-textarea-large">
+
+<h1>Костанай</h1>
+
+<p>Мой город.</p>
+
+</textarea>
+
+<div class="lesson-btn-row">
+
+<button class="lesson-btn secondary" id="previewBtn">
+Показать результат
+</button>
+
+<button class="lesson-btn primary" id="finishBtn">
+Завершить урок
+</button>
+
+</div>
+
+<iframe id="preview" class="preview-frame"></iframe>
+
+</div>
+
+
+<!-- РЕФЛЕКСИЯ -->
+
+<div class="lesson-step-card">
+
+<div class="step-head">
+<h2>Рефлексия</h2>
+</div>
+
+<p>
+
+Что нового ты сегодня узнал?
+
+</p>
+
+<ul class="nice-list">
+
+<li>как добавлять изображения</li>
+<li>как создавать ссылки</li>
+<li>как оформлять страницу</li>
+
+</ul>
+
+</div>
+
+</section>
+
+</main>
+
+<script>
+
+document.getElementById("previewBtn").onclick=function(){
+
+const code=document.getElementById("practiceCode").value
+
+document.getElementById("preview").srcdoc=code
+
+}
+
+document.getElementById("finishBtn").onclick=function(){
+
+localStorage.setItem("lesson3_done","true")
+
+alert("Урок завершён!")
+
+location.href="student-home.html"
+
+}
+
+document.getElementById("checkTrainer").onclick=function(){
+
+const code=document.getElementById("trainerCode").value
+
+if(code.includes("<img") && code.includes("<a")){
+document.getElementById("trainerResult").innerHTML="Тренажёр выполнен ✔"
+}else{
+document.getElementById("trainerResult").innerHTML="Добавь тег img и тег a"
+}
+
+}
+
+</script>
+
+</body>
+</html>
