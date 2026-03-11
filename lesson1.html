@@ -1,1 +1,170 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>KOMEK CODE — Урок 1</title>
+
+<link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+
+<div class="bg-shape shape-1"></div>
+<div class="bg-shape shape-2"></div>
+<div class="bg-shape shape-3"></div>
+
+<main class="stepik-page">
+
+<header class="stepik-topbar">
+
+<div class="brand">
+<div class="brand-logo">KC</div>
+
+<div>
+<div class="brand-title">KOMEK CODE</div>
+<div class="brand-subtitle">Модуль 1 · HTML</div>
+</div>
+</div>
+
+<div class="stepik-top-actions">
+<a class="ghost-btn" href="student-home.html">К урокам</a>
+</div>
+
+</header>
+
+<section class="lesson-header-card">
+
+<div>
+
+<div class="hero-badge">Урок 1</div>
+
+<h1 class="lesson-main-title">
+Введение в HTML
+</h1>
+
+<p class="lesson-main-subtitle">
+Что такое HTML и как создаётся первая страница
+</p>
+
+</div>
+
+</section>
+
+<section class="lesson-main">
+
+<!-- ТЕОРИЯ -->
+
+<div class="lesson-step-card">
+
+<div class="step-head">
+
+<h2>Теория</h2>
+
+</div>
+
+<p>
+
+HTML — это язык разметки, с помощью которого создаются страницы сайтов.
+
+Он описывает структуру страницы: заголовки, текст, изображения, списки.
+
+</p>
+
+<p>
+
+HTML состоит из тегов.
+
+</p>
+
+<div class="code-demo">
+<pre>
+
+<h1>Заголовок</h1>
+<p>Абзац текста</p>
+
+</pre>
+</div>
+
+<p>
+
+Теги сообщают браузеру, как отображать содержимое.
+
+</p>
+
+</div>
+
+<!-- ПРИМЕР -->
+
+<div class="lesson-step-card">
+
+<div class="step-head">
+
+<h2>Пример из жизни</h2>
+
+</div>
+
+<p>
+
+Любая веб-страница начинается с HTML-разметки.
+
+Например страница школы может содержать:
+
+</p>
+
+<ul class="nice-list">
+
+<li>Название школы</li>
+<li>Описание</li>
+<li>Новости</li>
+
+</ul>
+
+</div>
+
+<!-- ПРАКТИКА -->
+
+<div class="lesson-step-card">
+
+<div class="step-head">
+
+<h2>Практика</h2>
+
+</div>
+
+<label class="lesson-label">Напиши простой HTML</label>
+
+<textarea id="code" class="lesson-textarea">
+
+<h1>Моя первая страница</h1>
+
+<p>Я изучаю веб-программирование.</p>
+
+</textarea>
+
+<div class="lesson-btn-row">
+
+<button class="lesson-btn secondary" id="runBtn">
+Показать результат
+</button>
+
+<button class="lesson-btn primary" id="finishBtn">
+Завершить урок
+</button>
+
+</div>
+
+<iframe id="preview" class="preview-frame"></iframe>
+
+</div>
+
+</section>
+
+</main>
+
+<script type="module" src="lesson1.js"></script>
+
+</body>
+</html>
