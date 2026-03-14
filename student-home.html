@@ -1,207 +1,200 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>KOMEK CODE — Кабинет ученика</title>
-
-<link rel="stylesheet" href="styles.css">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KOMEK CODE — Кабинет ученика</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
-
-<div class="bg-shape shape-1"></div>
-<div class="bg-shape shape-2"></div>
-<div class="bg-shape shape-3"></div>
-
-<main class="landing">
-
-<header class="topbar">
-
-<div class="brand">
-
-<div class="brand-logo">KC</div>
-
-<div>
-<div class="brand-title">KOMEK CODE</div>
-<div class="brand-subtitle">кабинет ученика</div>
-</div>
-
-</div>
-
-<a class="ghost-btn" href="index.html">Выйти</a>
-
-</header>
-
-
-<section class="hero">
-
-<div>
-
-<div class="hero-badge">Образовательная платформа</div>
-
-<h1>
-Добро пожаловать в курс
-<span>Web-программирования</span>
-</h1>
-
-<p class="hero-text" id="studentName">
-Загрузка профиля...
-</p>
-
-
-<div class="hero-buttons">
-
-<a class="primary-btn" href="lesson1.html">
-Начать с урока 1
-</a>
-
-<a class="secondary-btn" href="lesson2.html">
-Продолжить обучение
-</a>
-
-</div>
-
-</div>
-
-
-<div class="dashboard-card">
-
-<div class="dashboard-top">
-<div class="mini-dot red"></div>
-<div class="mini-dot yellow"></div>
-<div class="mini-dot green"></div>
-</div>
-
-
-<div class="course-preview">
-
-<div class="preview-title">
-Цитата недели
-</div>
-
-<div class="info-card">
-
-<p>
-<strong>Қазақша:</strong>
-«Білім — болашақтың кілті»
-</p>
-
-<p class="muted">
-<strong>Русский:</strong>
-«Знание — ключ к будущему»
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<section class="modules-section">
-
-<div class="section-head">
-
-<h2>Модуль 1. HTML</h2>
-
-<p>
-Выбери урок и продолжай обучение
-</p>
-
-</div>
-
-
-<div class="modules-grid">
-
-<!-- Урок 1 -->
-
-<div class="module-card">
-
-<div class="module-icon html-icon">1</div>
-
-<h3>
-Урок 1
-<span id="lesson1Done"></span>
-</h3>
-
-<p>
-Первая web-страница. Структура HTML-документа.
-</p>
-
-<a class="primary-btn" href="lesson1.html">
-Открыть урок
-</a>
-
-</div>
-
-
-<!-- Урок 2 -->
-
-<div class="module-card">
-
-<div class="module-icon html-icon">2</div>
-
-<h3>
-Урок 2
-<span id="lesson2Done"></span>
-</h3>
-
-<p>
-Текст и списки в HTML.
-</p>
-
-<a class="primary-btn" href="lesson2.html">
-Открыть урок
-</a>
-
-</div>
-
-
-<!-- Урок 3 -->
-
-<div class="module-card">
-
-<div class="module-icon html-icon">3</div>
-
-<h3>
-Урок 3
-</h3>
-
-<p>
-Изображения и ссылки в HTML.
-</p>
-
-<a class="primary-btn" href="lesson3.html">Открыть урок</a>
-
-</div>
-
-
-</div>
-
-</section>
-
-</main>
-
-
-<script>
-
-if(localStorage.getItem("lesson1_done")){
-document.getElementById("lesson1Done").innerHTML="✓"
-}
-
-if(localStorage.getItem("lesson2_done")){
-document.getElementById("lesson2Done").innerHTML="✓"
-}
-
-</script>
-
-
-<script type="module" src="student-home.js"></script>
-
+  <div class="bg-shape shape-1"></div>
+  <div class="bg-shape shape-2"></div>
+  <div class="bg-shape shape-3"></div>
+
+  <main class="landing">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-logo">KC</div>
+
+        <div>
+          <div class="brand-title">KOMEK CODE</div>
+          <div class="brand-subtitle">кабинет ученика</div>
+        </div>
+      </div>
+
+      <a class="ghost-btn" href="index.html">Выйти</a>
+    </header>
+
+    <section class="hero">
+      <div>
+        <div class="hero-badge">Образовательная платформа</div>
+
+        <h1>
+          Добро пожаловать в курс
+          <span>Web-программирования</span>
+        </h1>
+
+        <p class="hero-text" id="studentName">
+          Загрузка профиля...
+        </p>
+
+        <div class="hero-buttons">
+          <a class="primary-btn" href="lesson1.html">
+            Начать с урока 1
+          </a>
+
+          <a class="secondary-btn" href="lesson2.html">
+            Продолжить обучение
+          </a>
+        </div>
+      </div>
+
+      <div class="dashboard-card">
+        <div class="dashboard-top">
+          <div class="mini-dot red"></div>
+          <div class="mini-dot yellow"></div>
+          <div class="mini-dot green"></div>
+        </div>
+
+        <div class="course-preview">
+          <div class="preview-title">
+            Цитата недели
+          </div>
+
+          <div class="info-card">
+            <p>
+              <strong>Қазақша:</strong>
+              «Білім — болашақтың кілті»
+            </p>
+
+            <p class="muted">
+              <strong>Русский:</strong>
+              «Знание — ключ к будущему»
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- БЛОК С УРОКАМИ -->
+    <section class="modules-section">
+      <div class="section-head">
+        <h2>Модуль 1. HTML</h2>
+        <p>Выбери урок и продолжай обучение</p>
+      </div>
+
+      <div class="modules-grid">
+        <!-- Урок 1 -->
+        <div class="module-card">
+          <div class="module-icon html-icon">1</div>
+
+          <h3>
+            Урок 1 <span id="lesson1Done"></span>
+          </h3>
+
+          <p>
+            Первая web-страница. Структура HTML-документа.
+          </p>
+
+          <a class="primary-btn" href="lesson1.html">
+            Открыть урок
+          </a>
+        </div>
+
+        <!-- Урок 2 -->
+        <div class="module-card">
+          <div class="module-icon html-icon">2</div>
+
+          <h3>
+            Урок 2 <span id="lesson2Done"></span>
+          </h3>
+
+          <p>
+            Текст и списки в HTML.
+          </p>
+
+          <a class="primary-btn" href="lesson2.html">
+            Открыть урок
+          </a>
+        </div>
+
+        <!-- Урок 3 -->
+        <div class="module-card">
+          <div class="module-icon html-icon">3</div>
+
+          <h3>
+            Урок 3 <span id="lesson3Done"></span>
+          </h3>
+
+          <p>
+            Изображения и ссылки в HTML.
+          </p>
+
+          <a class="primary-btn" href="lesson3.html">
+            Открыть урок
+          </a>
+        </div>
+
+        <!-- Урок 4 -->
+        <div class="module-card">
+          <div class="module-icon html-icon">4</div>
+
+          <h3>
+            Урок 4 <span id="lesson4Done"></span>
+          </h3>
+
+          <p>
+            Таблицы в HTML.
+          </p>
+
+          <a class="primary-btn" href="lesson4.html">
+            Открыть урок
+          </a>
+        </div>
+
+        <!-- Урок 5 -->
+        <div class="module-card">
+          <div class="module-icon html-icon">5</div>
+
+          <h3>
+            Урок 5 <span id="lesson5Done"></span>
+          </h3>
+
+          <p>
+            Формы в HTML.
+          </p>
+
+          <a class="primary-btn" href="lesson5.html">
+            Открыть урок
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    if (localStorage.getItem("lesson1_done")) {
+      document.getElementById("lesson1Done").innerHTML = " ✓";
+    }
+
+    if (localStorage.getItem("lesson2_done")) {
+      document.getElementById("lesson2Done").innerHTML = " ✓";
+    }
+
+    if (localStorage.getItem("lesson3_done")) {
+      document.getElementById("lesson3Done").innerHTML = " ✓";
+    }
+
+    if (localStorage.getItem("lesson4_done")) {
+      document.getElementById("lesson4Done").innerHTML = " ✓";
+    }
+
+    if (localStorage.getItem("lesson5_done")) {
+      document.getElementById("lesson5Done").innerHTML = " ✓";
+    }
+  </script>
+
+  <script type="module" src="student-home.js"></script>
 </body>
 </html>
