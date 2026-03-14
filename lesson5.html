@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KOMEK CODE — Модуль 1 · Урок 5</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-shape shape-1"></div>
+  <div class="bg-shape shape-2"></div>
+  <div class="bg-shape shape-3"></div>
+
+  <main class="stepik-page">
+    <header class="stepik-topbar">
+      <div class="brand">
+        <div class="brand-logo">KC</div>
+        <div>
+          <div class="brand-title">KOMEK CODE</div>
+          <div class="brand-subtitle">урок в формате step-by-step</div>
+        </div>
+      </div>
+
+      <div class="stepik-top-actions">
+        <a class="ghost-btn" href="student-home.html">К урокам</a>
+        <a class="ghost-btn" href="lesson4.html">← Урок 4</a>
+      </div>
+    </header>
+
+    <section class="lesson-header-card">
+      <div class="lesson-header-left">
+        <div class="hero-badge">Модуль 1 · HTML · 10 класс</div>
+        <h1 class="lesson-main-title">Урок 5. Формы в HTML</h1>
+        <p class="lesson-main-subtitle">
+          Как создавать поля ввода, кнопки и простые формы на веб-странице
+        </p>
+
+        <div class="meta-row">
+          <div class="meta-pill">Тема: ввод данных</div>
+          <div class="meta-pill">Формат: теория → практика → мини-проект</div>
+          <div class="meta-pill">Итог: форма регистрации</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="lesson-main">
+      <article class="lesson-step-card">
+        <div class="step-head">
+          <div>
+            <div class="card-chip">Этап 1</div>
+            <h2>Теория</h2>
+          </div>
+          <div class="step-badge">Основы</div>
+        </div>
+
+        <div class="lesson-block">
+          <h3>Что такое форма</h3>
+          <p>
+            Форма нужна для того, чтобы пользователь мог вводить данные на сайте.
+            Например: имя, электронную почту, пароль, возраст или сообщение.
+          </p>
+          <p>
+            Формы используются при регистрации, входе в аккаунт, заполнении анкеты,
+            заказе товара и отправке обратной связи.
+          </p>
+        </div>
+
+        <div class="concept-grid">
+          <div class="concept-card">
+            <h4>&lt;form&gt;</h4>
+            <p>Создаёт форму для ввода данных.</p>
+          </div>
+
+          <div class="concept-card">
+            <h4>&lt;input&gt;</h4>
+            <p>Поле ввода текста, почты, пароля и других данных.</p>
+          </div>
+
+          <div class="concept-card">
+            <h4>&lt;label&gt;</h4>
+            <p>Подпись к полю формы.</p>
+          </div>
+
+          <div class="concept-card">
+            <h4>&lt;button&gt;</h4>
+            <p>Кнопка отправки или действия.</p>
+          </div>
+
+          <div class="concept-card">
+            <h4>type="text"</h4>
+            <p>Обычное текстовое поле.</p>
+          </div>
+
+          <div class="concept-card">
+            <h4>type="email"</h4>
+            <p>Поле для электронной почты.</p>
+          </div>
+
+          <div class="concept-card">
+            <h4>type="password"</h4>
+            <p>Поле для пароля.</p>
+          </div>
+
+          <div class="concept-card">
+            <h4>placeholder</h4>
+            <p>Подсказка внутри поля.</p>
+          </div>
+        </div>
+
+        <div class="example-panel">
+          <div class="example-title">Пример из жизни</div>
+          <p>
+            Когда ты регистрируешься на сайте, ты заполняешь форму:
+            вводишь имя, почту и пароль. Всё это создаётся с помощью HTML-форм.
+          </p>
+        </div>
+
+        <div class="code-demo">
+<pre>
+&lt;form&gt;
+  &lt;label&gt;Имя:&lt;/label&gt;
+  &lt;input type="text" placeholder="Введите имя"&gt;
+
+  &lt;label&gt;Email:&lt;/label&gt;
+  &lt;input type="email" placeholder="Введите email"&gt;
+
+  &lt;button&gt;Отправить&lt;/button&gt;
+&lt;/form&gt;
+</pre>
+        </div>
+      </article>
+
+      <article class="lesson-step-card">
+        <div class="step-head">
+          <div>
+            <div class="card-chip">Этап 2</div>
+            <h2>Разбор тегов</h2>
+          </div>
+          <div class="step-badge soft">Понимание структуры</div>
+        </div>
+
+        <div class="validation-box">
+          <div class="validation-title">Что важно запомнить</div>
+          <div class="validation-item">• тег <code>&lt;form&gt;</code> объединяет все элементы формы</div>
+          <div class="validation-item">• тег <code>&lt;input&gt;</code> создаёт поле ввода</div>
+          <div class="validation-item">• атрибут <code>type</code> определяет вид поля</div>
+          <div class="validation-item">• тег <code>&lt;button&gt;</code> создаёт кнопку</div>
+          <div class="validation-item">• подписи к полям делают форму понятнее</div>
+        </div>
+
+        <div class="helper-box">
+          <div class="helper-title">Подсказка</div>
+          <p>
+            Хорошая форма должна быть не только рабочей, но и понятной для пользователя.
+            Поэтому подписи и логичный порядок полей очень важны.
+          </p>
+        </div>
+      </article>
+
+      <article class="lesson-step-card">
+        <div class="step-head">
+          <div>
+            <div class="card-chip">Этап 3</div>
+            <h2>Практика</h2>
+          </div>
+          <div class="step-badge accent">Основное задание</div>
+        </div>
+
+        <p>
+          Создай простую форму регистрации. В ней должны быть:
+        </p>
+
+        <ul class="sidebar-list">
+          <li>заголовок страницы</li>
+          <li>поле для имени</li>
+          <li>поле для email</li>
+          <li>поле для пароля</li>
+          <li>кнопка отправки</li>
+        </ul>
+
+        <div class="editor-layout">
+          <div class="editor-column">
+            <label class="lesson-label">HTML-код</label>
+            <textarea class="lesson-textarea lesson-textarea-large"><!DOCTYPE html>
+<html>
+<head>
+  <title>Регистрация</title>
+</head>
+<body>
+  <h1>Форма регистрации</h1>
+
+  <form>
+    <label>Имя:</label><br>
+    <input type="text" placeholder="Введите имя"><br><br>
+
+    <label>Email:</label><br>
+    <input type="email" placeholder="Введите email"><br><br>
+
+    <label>Пароль:</label><br>
+    <input type="password" placeholder="Введите пароль"><br><br>
+
+    <button>Отправить</button>
+  </form>
+</body>
+</html></textarea>
+          </div>
+
+          <div class="editor-column">
+            <label class="lesson-label">Что должно получиться</label>
+            <div class="info-card">
+              <p><strong>Мини-проект:</strong> страница с формой регистрации.</p>
+              <p class="muted">
+                Это уже похоже на настоящий элемент сайта, поэтому такой урок хорошо завершает модуль HTML.
+              </p>
+            </div>
+
+            <div class="helper-box">
+              <div class="helper-title">Идея для усложнения</div>
+              <p>
+                Можно добавить поле возраста, комментарий или выбор любимого школьного предмета.
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="lesson-step-card">
+        <div class="step-head">
+          <div>
+            <div class="card-chip">Этап 4</div>
+            <h2>Мини-проект</h2>
+          </div>
+          <div class="step-badge">Творческое задание</div>
+        </div>
+
+        <div class="practice-header-grid">
+          <div class="practice-level-card basic">
+            <div class="level-badge">Базовый</div>
+            <h3>Минимум</h3>
+            <p>Форма из 3 полей и кнопки отправки.</p>
+          </div>
+
+          <div class="practice-level-card medium">
+            <div class="level-badge">Средний</div>
+            <h3>Лучше</h3>
+            <p>Добавь подписи, подсказки placeholder и красивый заголовок.</p>
+          </div>
+
+          <div class="practice-level-card strong">
+            <div class="level-badge">Повышенный</div>
+            <h3>Творческий</h3>
+            <p>Сделай анкету участника школьного IT-клуба.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="lesson-step-card">
+        <div class="step-head">
+          <div>
+            <div class="card-chip">Этап 5</div>
+            <h2>Рефлексия</h2>
+          </div>
+          <div class="step-badge">Завершение модуля</div>
+        </div>
+
+        <div class="reflection-grid">
+          <div class="reflection-card">
+            <h3>Что нового я узнал(а)?</h3>
+            <p>Какие теги используются для создания формы?</p>
+          </div>
+
+          <div class="reflection-card">
+            <h3>Что было самым понятным?</h3>
+            <p>Какие элементы формы было легче всего создать?</p>
+          </div>
+
+          <div class="reflection-card">
+            <h3>Что можно улучшить?</h3>
+            <p>Как сделать форму удобнее и понятнее для пользователя?</p>
+          </div>
+        </div>
+
+        <div class="status-box ok">
+          Поздравляем! Ты завершил(а) Модуль 1 по HTML.
+        </div>
+
+        <div class="lesson-navigation">
+          <a href="lesson4.html" class="prev-btn">← Предыдущий урок</a>
+          <a href="student-home.html" class="center-btn">К урокам</a>
+        </div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
