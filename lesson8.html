@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KOMEK CODE — Модуль 2 · Урок 8</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <div class="bg-shape shape-1"></div>
+  <div class="bg-shape shape-2"></div>
+  <div class="bg-shape shape-3"></div>
+
+  <main class="stepik-page">
+
+    <!-- HEADER -->
+    <header class="stepik-topbar">
+      <div class="brand">
+        <div class="brand-logo">KC</div>
+        <div>
+          <div class="brand-title">KOMEK CODE</div>
+          <div class="brand-subtitle">урок в формате step-by-step</div>
+        </div>
+      </div>
+
+      <div class="stepik-top-actions">
+        <a class="ghost-btn" href="student-home.html">К урокам</a>
+        <a class="ghost-btn" href="lesson7.html">← Урок 7</a>
+        <a class="ghost-btn" href="lesson9.html">Урок 9 →</a>
+      </div>
+    </header>
+
+    <!-- HEADER -->
+    <section class="lesson-header-card">
+      <div class="lesson-header-left">
+        <div class="hero-badge">Модуль 2 · CSS</div>
+        <h1 class="lesson-main-title">Урок 8. Отступы и границы</h1>
+        <p class="lesson-main-subtitle">
+          Как управлять расстояниями между элементами
+        </p>
+      </div>
+    </section>
+
+    <section class="lesson-main">
+
+      <!-- ТЕОРИЯ -->
+      <article class="lesson-step-card">
+        <div class="step-head">
+          <h2>Теория</h2>
+        </div>
+
+        <p>
+          В CSS есть свойства, которые управляют расстояниями:
+        </p>
+
+        <div class="concept-grid">
+
+          <div class="concept-card">
+            <h4>margin</h4>
+            <p>Внешний отступ (снаружи блока)</p>
+          </div>
+
+          <div class="concept-card">
+            <h4>padding</h4>
+            <p>Внутренний отступ (внутри блока)</p>
+          </div>
+
+          <div class="concept-card">
+            <h4>border</h4>
+            <p>Граница вокруг элемента</p>
+          </div>
+
+          <div class="concept-card">
+            <h4>border-radius</h4>
+            <p>Скругление углов</p>
+          </div>
+
+        </div>
+
+        <div class="code-demo">
+<pre>
+div {
+  margin: 20px;
+  padding: 15px;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+</pre>
+        </div>
+
+      </article>
+
+      <!-- ПРИМЕР -->
+      <article class="lesson-step-card">
+        <div class="step-head">
+          <h2>Пример</h2>
+        </div>
+
+        <p>
+          Без отступов элементы выглядят "слипшимися".  
+          С отступами — аккуратно и красиво.
+        </p>
+
+      </article>
+
+      <!-- ПРАКТИКА -->
+      <article class="lesson-step-card">
+        <div class="step-head">
+          <h2>Практика</h2>
+        </div>
+
+        <p>Сделай карточку:</p>
+
+        <ul>
+          <li>добавь отступы</li>
+          <li>добавь границу</li>
+          <li>сделай скругление</li>
+        </ul>
+
+        <textarea class="lesson-textarea lesson-textarea-large"><!DOCTYPE html>
+<html>
+<head>
+<title>Карточка</title>
+
+<style>
+.card {
+  margin: 20px;
+  padding: 20px;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+  <h2>Мой город</h2>
+  <p>Костанай — красивый и уютный город.</p>
+</div>
+
+</body>
+</html></textarea>
+
+      </article>
+
+      <!-- МИНИ-ПРОЕКТ -->
+      <article class="lesson-step-card">
+        <div class="step-head">
+          <h2>Мини-проект</h2>
+        </div>
+
+        <p>Создай карточку о своём городе:</p>
+
+        <ul>
+          <li>добавь отступы</li>
+          <li>сделай границу</li>
+          <li>сделай скруглённые углы</li>
+        </ul>
+
+      </article>
+
+      <!-- РЕФЛЕКСИЯ -->
+      <article class="lesson-step-card">
+        <div class="step-head">
+          <h2>Рефлексия</h2>
+        </div>
+
+        <ul>
+          <li>Чем отличается margin от padding?</li>
+          <li>Для чего нужен border?</li>
+          <li>Как сделать углы круглыми?</li>
+        </ul>
+
+        <div class="status-box ok">
+          Урок завершён!
+        </div>
+
+        <!-- НАВИГАЦИЯ -->
+        <div class="lesson-navigation">
+
+          <a href="lesson7.html" class="prev-btn">
+            ← Предыдущий урок
+          </a>
+
+          <a href="student-home.html" class="center-btn">
+            К урокам
+          </a>
+
+          <a href="lesson9.html" class="next-btn">
+            Следующий урок →
+          </a>
+
+        </div>
+
+      </article>
+
+    </section>
+
+  </main>
+
+</body>
+</html>
