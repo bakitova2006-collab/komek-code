@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KOMEK CODE — Модуль 2 · Урок 7</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <div class="bg-shape shape-1"></div>
+  <div class="bg-shape shape-2"></div>
+  <div class="bg-shape shape-3"></div>
+
+  <main class="stepik-page">
+
+    <!-- HEADER -->
+    <header class="stepik-topbar">
+      <div class="brand">
+        <div class="brand-logo">KC</div>
+        <div>
+          <div class="brand-title">KOMEK CODE</div>
+          <div class="brand-subtitle">урок в формате step-by-step</div>
+        </div>
+      </div>
+
+      <div class="stepik-top-actions">
+        <a class="ghost-btn" href="student-home.html">К урокам</a>
+        <a class="ghost-btn" href="lesson6.html">← Урок 6</a>
+        <a class="ghost-btn" href="lesson8.html">Урок 8 →</a>
+      </div>
+    </header>
+
+    <!-- HEADER CARD -->
+    <section class="lesson-header-card">
+      <div class="lesson-header-left">
+        <div class="hero-badge">Модуль 2 · CSS</div>
+        <h1 class="lesson-main-title">Урок 7. Цвет, фон и текст</h1>
+        <p class="lesson-main-subtitle">
+          Как сделать сайт красивым и читаемым
+        </p>
+      </div>
+    </section>
+
+    <section class="lesson-main">
+
+      <!-- ТЕОРИЯ -->
+      <article class="lesson-step-card">
+        <div class="step-head">
+          <h2>Теория</h2>
+        </div>
+
+        <p>
+          CSS позволяет менять внешний вид страницы: цвет текста, фон,
+          размер шрифта и выравнивание.
+        </p>
+
+        <div class="concept-grid">
+
+          <div class="concept-card">
+            <h4>color</h4>
+            <p>Цвет текста</p>
+          </div>
+
+          <div class="concept-card">
+            <h4>background-color</h4>
+            <p>Цвет фона</p>
+          </div>
+
+          <div class="concept-card">
+            <h4>font-size</h4>
+            <p>Размер текста</p>
+          </div>
+
+          <div class="concept-card">
+            <h4>text-align</h4>
+            <p>Выравнивание текста</p>
+          </div>
+
+        </div>
+
+        <div class="code-demo">
+<pre>
+h1 {
+  color: red;
+  text-align: center;
+}
+
+body {
+  background-color: lightblue;
+}
+
+p {
+  font-size: 18px;
+}
+</pre>
+        </div>
+
+      </article>
+
+      <!-- ПРАКТИКА -->
+      <article class="lesson-step-card">
+        <div class="step-head">
+          <h2>Практика</h2>
+        </div>
+
+        <p>Сделай страницу красивой:</p>
+
+        <ul>
+          <li>заголовок — красный</li>
+          <li>фон — светло-голубой</li>
+          <li>текст — больше</li>
+        </ul>
+
+        <textarea class="lesson-textarea lesson-textarea-large"><!DOCTYPE html>
+<html>
+<head>
+<title>Моя страница</title>
+
+<style>
+body {
+  background-color: lightblue;
+}
+
+h1 {
+  color: red;
+  text-align: center;
+}
+
+p {
+  font-size: 18px;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>Мой сайт</h1>
+
+<p>Я учусь делать красивые страницы.</p>
+
+</body>
+</html></textarea>
+
+      </article>
+
+      <!-- МИНИ-ПРОЕКТ -->
+      <article class="lesson-step-card">
+        <div class="step-head">
+          <h2>Мини-проект</h2>
+        </div>
+
+        <p>Оформи страницу о своём городе:</p>
+
+        <ul>
+          <li>сделай красивый фон</li>
+          <li>измени цвет текста</li>
+          <li>выравни заголовок по центру</li>
+        </ul>
+
+      </article>
+
+      <!-- РЕФЛЕКСИЯ -->
+      <article class="lesson-step-card">
+        <div class="step-head">
+          <h2>Рефлексия</h2>
+        </div>
+
+        <ul>
+          <li>Что делает свойство color?</li>
+          <li>Что делает background-color?</li>
+          <li>Как изменить размер текста?</li>
+        </ul>
+
+        <div class="status-box ok">
+          Урок завершён!
+        </div>
+
+        <!-- НАВИГАЦИЯ -->
+        <div class="lesson-navigation">
+
+          <a href="lesson6.html" class="prev-btn">
+            ← Предыдущий урок
+          </a>
+
+          <a href="student-home.html" class="center-btn">
+            К урокам
+          </a>
+
+          <a href="lesson8.html" class="next-btn">
+            Следующий урок →
+          </a>
+
+        </div>
+
+      </article>
+
+    </section>
+
+  </main>
+
+</body>
+</html>
