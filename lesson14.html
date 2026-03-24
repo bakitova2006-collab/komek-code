@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KOMEK CODE — Модуль 3 · Урок 14</title>
+  <link rel="stylesheet" href="styles.css"/>
+
+  <style>
+    .dark {
+      background-color: #121212;
+      color: white;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="bg-shape shape-1"></div>
+  <div class="bg-shape shape-2"></div>
+  <div class="bg-shape shape-3"></div>
+
+  <main class="stepik-page">
+
+    <!-- HEADER -->
+    <header class="stepik-topbar">
+      <div class="brand">
+        <div class="brand-logo">KC</div>
+        <div>
+          <div class="brand-title">KOMEK CODE</div>
+          <div class="brand-subtitle">JavaScript · эффекты</div>
+        </div>
+      </div>
+
+      <div class="stepik-top-actions">
+        <a class="ghost-btn" href="student-home.html">К урокам</a>
+        <a class="ghost-btn" href="lesson13.html">← Урок 13</a>
+        <a class="ghost-btn" href="lesson15.html">Урок 15 →</a>
+      </div>
+    </header>
+
+    <!-- HEADER -->
+    <section class="lesson-header-card">
+      <div class="lesson-header-left">
+        <div class="hero-badge">Модуль 3 · JavaScript</div>
+        <h1 class="lesson-main-title">Урок 14. Изменение элементов</h1>
+        <p class="lesson-main-subtitle">
+          Меняем стиль, цвет и видимость
+        </p>
+      </div>
+    </section>
+
+    <section class="lesson-main">
+
+      <!-- ТЕОРИЯ -->
+      <article class="lesson-step-card">
+        <div class="step-head">
+          <h2>Теория</h2>
+        </div>
+
+        <p>
+          JavaScript может менять внешний вид страницы:
+        </p>
+
+        <div class="concept-grid">
+
+          <div class="concept-card">
+            <h4>style</h4>
+            <p>Изменяет стиль элемента</p>
+          </div>
+
+          <div class="concept-card">
+            <h4>display</h4>
+            <p>Скрывает/показывает элемент</p>
+          </div>
+
+          <div class="concept-card">
+            <h4>classList</h4>
+            <p>Добавляет класс</p>
+          </div>
+
+        </div>
+
+        <div class="code-demo">
+<pre>
+document.getElementById("text").style.color = "red";
+</pre>
+        </div>
+
+      </article>
+
+      <!-- ПРАКТИКА -->
+      <article class="lesson-step-card">
+        <div class="step-head">
+          <h2>Практика</h2>
+        </div>
+
+        <p>Попробуй изменить страницу:</p>
+
+        <textarea id="jsInput" class="lesson-textarea lesson-textarea-large"><!DOCTYPE html>
+<html>
+<body>
+
+<h2 id="text">Мой сайт</h2>
+
+<button onclick="changeColor()">Сменить цвет</button>
+<button onclick="hideText()">Скрыть</button>
+<button onclick="showText()">Показать</button>
+<button onclick="darkMode()">Тёмная тема</button>
+
+<script>
+function changeColor(){
+  document.getElementById("text").style.color = "red";
+}
+
+function hideText(){
+  document.getElementById("text").style.display = "none";
+}
+
+function showText(){
+  document.getElementById("text").style.display = "block";
+}
+
+function darkMode(){
+  document.body.classList.toggle("dark");
+}
+</script>
+
+</body>
+</html></textarea>
+
+        <div class="lesson-btn-row">
+          <button class="lesson-btn secondary" onclick="preview()">Показать результат</button>
+        </div>
+
+        <iframe id="previewFrame" class="preview-frame"></iframe>
+
+      </article>
+
+      <!-- МИНИ-ПРОЕКТ -->
+      <article class="lesson-step-card">
+        <div class="step-head">
+          <h2>Мини-проект</h2>
+        </div>
+
+        <p>Создай интерактивную страницу:</p>
+
+        <ul>
+          <li>кнопка меняет цвет текста</li>
+          <li>кнопка скрывает/показывает текст</li>
+          <li>кнопка включает тёмную тему</li>
+        </ul>
+
+      </article>
+
+      <!-- РЕФЛЕКСИЯ -->
+      <article class="lesson-step-card">
+        <div class="step-head">
+          <h2>Рефлексия</h2>
+        </div>
+
+        <ul>
+          <li>Как изменить цвет элемента?</li>
+          <li>Как скрыть элемент?</li>
+          <li>Что делает classList?</li>
+        </ul>
+
+        <div class="status-box ok">
+          Урок завершён!
+        </div>
+
+        <div class="lesson-navigation">
+          <a href="lesson13.html" class="prev-btn">← Предыдущий урок</a>
+          <a href="student-home.html" class="center-btn">К урокам</a>
+          <a href="lesson15.html" class="next-btn">Следующий урок →</a>
+        </div>
+
+      </article>
+
+    </section>
+
+  </main>
+
+  <script>
+    function preview() {
+      const code = document.getElementById("jsInput").value;
+      document.getElementById("previewFrame").srcdoc = code;
+    }
+  </script>
+
+</body>
+</html>
