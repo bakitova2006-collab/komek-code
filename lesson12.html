@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KOMEK CODE — Модуль 3 · Урок 12</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+
+<body>
+  <div class="bg-shape shape-1"></div>
+  <div class="bg-shape shape-2"></div>
+  <div class="bg-shape shape-3"></div>
+
+  <main class="stepik-page">
+
+    <!-- HEADER -->
+    <header class="stepik-topbar">
+      <div class="brand">
+        <div class="brand-logo">KC</div>
+        <div>
+          <div class="brand-title">KOMEK CODE</div>
+          <div class="brand-subtitle">JavaScript · практика</div>
+        </div>
+      </div>
+
+      <div class="stepik-top-actions">
+        <a class="ghost-btn" href="student-home.html">К урокам</a>
+        <a class="ghost-btn" href="lesson11.html">← Урок 11</a>
+        <a class="ghost-btn" href="lesson13.html">Урок 13 →</a>
+      </div>
+    </header>
+
+    <!-- HEADER -->
+    <section class="lesson-header-card">
+      <div class="lesson-header-left">
+        <div class="hero-badge">Модуль 3 · JavaScript</div>
+        <h1 class="lesson-main-title">Урок 12. Переменные и текст</h1>
+        <p class="lesson-main-subtitle">
+          Как менять текст на странице
+        </p>
+      </div>
+    </section>
+
+    <section class="lesson-main">
+
+      <!-- ТЕОРИЯ -->
+      <article class="lesson-step-card">
+        <div class="step-head">
+          <h2>Теория</h2>
+        </div>
+
+        <p>
+          В JavaScript можно создавать переменные и изменять элементы страницы.
+        </p>
+
+        <div class="concept-grid">
+
+          <div class="concept-card">
+            <h4>let</h4>
+            <p>Создаёт переменную</p>
+          </div>
+
+          <div class="concept-card">
+            <h4>document.getElementById</h4>
+            <p>Находит элемент</p>
+          </div>
+
+          <div class="concept-card">
+            <h4>innerHTML</h4>
+            <p>Меняет текст</p>
+          </div>
+
+        </div>
+
+        <div class="code-demo">
+<pre>
+let name = "Айжан";
+
+function changeText(){
+  document.getElementById("text").innerHTML = name;
+}
+</pre>
+        </div>
+
+      </article>
+
+      <!-- ПРАКТИКА -->
+      <article class="lesson-step-card">
+        <div class="step-head">
+          <h2>Практика</h2>
+        </div>
+
+        <p>Сделай кнопку, которая меняет текст:</p>
+
+        <textarea id="jsInput" class="lesson-textarea lesson-textarea-large"><!DOCTYPE html>
+<html>
+<body>
+
+<h2 id="text">Привет!</h2>
+
+<button onclick="changeText()">Изменить текст</button>
+
+<script>
+let name = "Я изучаю JavaScript!";
+
+function changeText(){
+  document.getElementById("text").innerHTML = name;
+}
+</script>
+
+</body>
+</html></textarea>
+
+        <div class="lesson-btn-row">
+          <button class="lesson-btn secondary" onclick="preview()">Показать результат</button>
+        </div>
+
+        <iframe id="previewFrame" class="preview-frame"></iframe>
+
+      </article>
+
+      <!-- МИНИ-ЗАДАНИЕ -->
+      <article class="lesson-step-card">
+        <div class="step-head">
+          <h2>Мини-задание</h2>
+        </div>
+
+        <ul>
+          <li>измени текст в переменной</li>
+          <li>сделай своё сообщение</li>
+        </ul>
+
+      </article>
+
+      <!-- РЕФЛЕКСИЯ -->
+      <article class="lesson-step-card">
+        <div class="step-head">
+          <h2>Рефлексия</h2>
+        </div>
+
+        <ul>
+          <li>Что делает let?</li>
+          <li>Как изменить текст на странице?</li>
+          <li>Что делает innerHTML?</li>
+        </ul>
+
+        <div class="status-box ok">
+          Урок завершён!
+        </div>
+
+        <div class="lesson-navigation">
+          <a href="lesson11.html" class="prev-btn">← Предыдущий урок</a>
+          <a href="student-home.html" class="center-btn">К урокам</a>
+          <a href="lesson13.html" class="next-btn">Следующий урок →</a>
+        </div>
+
+      </article>
+
+    </section>
+
+  </main>
+
+  <script>
+    function preview() {
+      const code = document.getElementById("jsInput").value;
+      document.getElementById("previewFrame").srcdoc = code;
+    }
+  </script>
+
+</body>
+</html>
