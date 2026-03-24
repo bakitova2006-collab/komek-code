@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KOMEK CODE — Модуль 2 · Урок 9</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <div class="bg-shape shape-1"></div>
+  <div class="bg-shape shape-2"></div>
+  <div class="bg-shape shape-3"></div>
+
+  <main class="stepik-page">
+
+    <!-- HEADER -->
+    <header class="stepik-topbar">
+      <div class="brand">
+        <div class="brand-logo">KC</div>
+        <div>
+          <div class="brand-title">KOMEK CODE</div>
+          <div class="brand-subtitle">урок в формате step-by-step</div>
+        </div>
+      </div>
+
+      <div class="stepik-top-actions">
+        <a class="ghost-btn" href="student-home.html">К урокам</a>
+        <a class="ghost-btn" href="lesson8.html">← Урок 8</a>
+        <a class="ghost-btn" href="lesson10.html">Урок 10 →</a>
+      </div>
+    </header>
+
+    <!-- HEADER -->
+    <section class="lesson-header-card">
+      <div class="lesson-header-left">
+        <div class="hero-badge">Модуль 2 · CSS</div>
+        <h1 class="lesson-main-title">Урок 9. Flexbox</h1>
+        <p class="lesson-main-subtitle">
+          Как красиво расположить элементы на странице
+        </p>
+      </div>
+    </section>
+
+    <section class="lesson-main">
+
+      <!-- ТЕОРИЯ -->
+      <article class="lesson-step-card">
+        <div class="step-head">
+          <h2>Теория</h2>
+        </div>
+
+        <p>
+          Flexbox — это способ расположения элементов в строку или колонку.
+          Он используется почти на всех современных сайтах.
+        </p>
+
+        <div class="concept-grid">
+
+          <div class="concept-card">
+            <h4>display: flex</h4>
+            <p>Включает flex-режим</p>
+          </div>
+
+          <div class="concept-card">
+            <h4>justify-content</h4>
+            <p>Выравнивание по горизонтали</p>
+          </div>
+
+          <div class="concept-card">
+            <h4>align-items</h4>
+            <p>Выравнивание по вертикали</p>
+          </div>
+
+          <div class="concept-card">
+            <h4>gap</h4>
+            <p>Расстояние между элементами</p>
+          </div>
+
+        </div>
+
+        <div class="code-demo">
+<pre>
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+</pre>
+        </div>
+
+      </article>
+
+      <!-- ПРАКТИКА -->
+      <article class="lesson-step-card">
+        <div class="step-head">
+          <h2>Практика</h2>
+        </div>
+
+        <p>Сделай карточки в ряд:</p>
+
+        <ul>
+          <li>используй display: flex</li>
+          <li>добавь расстояние между элементами</li>
+        </ul>
+
+        <textarea class="lesson-textarea lesson-textarea-large"><!DOCTYPE html>
+<html>
+<head>
+<title>Flexbox</title>
+
+<style>
+.container {
+  display: flex;
+  gap: 20px;
+}
+
+.card {
+  padding: 20px;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="card">Карточка 1</div>
+  <div class="card">Карточка 2</div>
+  <div class="card">Карточка 3</div>
+
+</div>
+
+</body>
+</html></textarea>
+
+      </article>
+
+      <!-- МИНИ-ПРОЕКТ -->
+      <article class="lesson-step-card">
+        <div class="step-head">
+          <h2>Мини-проект</h2>
+        </div>
+
+        <p>Создай блок карточек:</p>
+
+        <ul>
+          <li>3 карточки в ряд</li>
+          <li>одинаковый стиль</li>
+          <li>отступы между ними</li>
+        </ul>
+
+      </article>
+
+      <!-- РЕФЛЕКСИЯ -->
+      <article class="lesson-step-card">
+        <div class="step-head">
+          <h2>Рефлексия</h2>
+        </div>
+
+        <ul>
+          <li>Что делает display: flex?</li>
+          <li>Как расположить элементы в ряд?</li>
+          <li>Как добавить расстояние между ними?</li>
+        </ul>
+
+        <div class="status-box ok">
+          Урок завершён!
+        </div>
+
+        <!-- НАВИГАЦИЯ -->
+        <div class="lesson-navigation">
+
+          <a href="lesson8.html" class="prev-btn">
+            ← Предыдущий урок
+          </a>
+
+          <a href="student-home.html" class="center-btn">
+            К урокам
+          </a>
+
+          <a href="lesson10.html" class="next-btn">
+            Следующий урок →
+          </a>
+
+        </div>
+
+      </article>
+
+    </section>
+
+  </main>
+
+</body>
+</html>
