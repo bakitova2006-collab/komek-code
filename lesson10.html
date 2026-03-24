@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KOMEK CODE — Модуль 2 · Урок 10</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+
+<body>
+  <div class="bg-shape shape-1"></div>
+  <div class="bg-shape shape-2"></div>
+  <div class="bg-shape shape-3"></div>
+
+  <main class="stepik-page">
+
+    <!-- HEADER -->
+    <header class="stepik-topbar">
+      <div class="brand">
+        <div class="brand-logo">KC</div>
+        <div>
+          <div class="brand-title">KOMEK CODE</div>
+          <div class="brand-subtitle">финальный проект</div>
+        </div>
+      </div>
+
+      <div class="stepik-top-actions">
+        <a class="ghost-btn" href="student-home.html">К урокам</a>
+        <a class="ghost-btn" href="lesson9.html">← Урок 9</a>
+      </div>
+    </header>
+
+    <!-- HEADER -->
+    <section class="lesson-header-card">
+      <div class="lesson-header-left">
+        <div class="hero-badge">Модуль 2 · CSS</div>
+        <h1 class="lesson-main-title">Урок 10. Итоговый проект</h1>
+        <p class="lesson-main-subtitle">
+          Создай красивую веб-страницу о своём городе
+        </p>
+      </div>
+    </section>
+
+    <section class="lesson-main">
+
+      <!-- ЗАДАНИЕ -->
+      <article class="lesson-step-card">
+        <div class="step-head">
+          <h2>Задание</h2>
+        </div>
+
+        <p>
+          Создай полноценную веб-страницу с использованием HTML и CSS.
+        </p>
+
+        <div class="practice-header-grid">
+
+          <div class="practice-level-card basic">
+            <div class="level-badge">Базовый</div>
+            <p>Заголовок, текст и список</p>
+          </div>
+
+          <div class="practice-level-card medium">
+            <div class="level-badge">Средний</div>
+            <p>Добавь стили (цвет, фон, размер текста)</p>
+          </div>
+
+          <div class="practice-level-card strong">
+            <div class="level-badge">Продвинутый</div>
+            <p>Карточки + flexbox</p>
+          </div>
+
+        </div>
+
+      </article>
+
+      <!-- ПРИМЕР -->
+      <article class="lesson-step-card">
+        <div class="step-head">
+          <h2>Пример проекта</h2>
+        </div>
+
+<div class="code-demo">
+<pre>
+&lt;style&gt;
+body {
+  background-color: #f0f8ff;
+  font-family: Arial;
+}
+
+.container {
+  display: flex;
+  gap: 20px;
+}
+
+.card {
+  padding: 20px;
+  border-radius: 10px;
+  background: white;
+}
+&lt;/style&gt;
+
+&lt;h1&gt;Костанай&lt;/h1&gt;
+
+&lt;div class="container"&gt;
+  &lt;div class="card"&gt;Места&lt;/div&gt;
+  &lt;div class="card"&gt;История&lt;/div&gt;
+  &lt;div class="card"&gt;Почему люблю&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+</div>
+
+      </article>
+
+      <!-- РЕДАКТОР -->
+      <article class="lesson-step-card">
+        <div class="step-head">
+          <h2>Твоя работа</h2>
+        </div>
+
+        <textarea id="projectInput" class="lesson-textarea lesson-textarea-large"><!DOCTYPE html>
+<html>
+<head>
+<title>Мой город</title>
+
+<style>
+body {
+  font-family: Arial;
+  background-color: #f0f8ff;
+}
+
+.container {
+  display: flex;
+  gap: 20px;
+}
+
+.card {
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>Мой город</h1>
+
+<div class="container">
+  <div class="card">Информация</div>
+  <div class="card">Интересные места</div>
+  <div class="card">Почему я люблю его</div>
+</div>
+
+</body>
+</html></textarea>
+
+        <div class="lesson-btn-row">
+          <button class="lesson-btn secondary" onclick="preview()">Показать результат</button>
+          <button class="lesson-btn primary" onclick="finish()">Завершить проект</button>
+        </div>
+
+        <iframe id="previewFrame" class="preview-frame"></iframe>
+
+      </article>
+
+      <!-- РЕФЛЕКСИЯ -->
+      <article class="lesson-step-card">
+        <div class="step-head">
+          <h2>Рефлексия</h2>
+        </div>
+
+        <ul>
+          <li>Что было самым интересным?</li>
+          <li>Что получилось лучше всего?</li>
+          <li>Хочешь ли ты продолжить изучение веб-разработки?</li>
+        </ul>
+
+        <div class="status-box ok" id="finalMessage">
+          Заверши проект, чтобы закончить модуль.
+        </div>
+
+        <div class="lesson-navigation">
+          <a href="lesson9.html" class="prev-btn">← Предыдущий урок</a>
+          <a href="student-home.html" class="center-btn">К урокам</a>
+        </div>
+
+      </article>
+
+    </section>
+
+  </main>
+
+  <script>
+    function preview() {
+      const code = document.getElementById("projectInput").value;
+      document.getElementById("previewFrame").srcdoc = code;
+    }
+
+    function finish() {
+      localStorage.setItem("lesson10_done", "true");
+      document.getElementById("finalMessage").innerHTML = "🎉 Проект завершён! Ты молодец!";
+    }
+  </script>
+
+</body>
+</html>
