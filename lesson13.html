@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KOMEK CODE — Модуль 3 · Урок 13</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+
+<body>
+  <div class="bg-shape shape-1"></div>
+  <div class="bg-shape shape-2"></div>
+  <div class="bg-shape shape-3"></div>
+
+  <main class="stepik-page">
+
+    <!-- HEADER -->
+    <header class="stepik-topbar">
+      <div class="brand">
+        <div class="brand-logo">KC</div>
+        <div>
+          <div class="brand-title">KOMEK CODE</div>
+          <div class="brand-subtitle">JavaScript · события</div>
+        </div>
+      </div>
+
+      <div class="stepik-top-actions">
+        <a class="ghost-btn" href="student-home.html">К урокам</a>
+        <a class="ghost-btn" href="lesson12.html">← Урок 12</a>
+        <a class="ghost-btn" href="lesson14.html">Урок 14 →</a>
+      </div>
+    </header>
+
+    <!-- HEADER -->
+    <section class="lesson-header-card">
+      <div class="lesson-header-left">
+        <div class="hero-badge">Модуль 3 · JavaScript</div>
+        <h1 class="lesson-main-title">Урок 13. События</h1>
+        <p class="lesson-main-subtitle">
+          Как реагировать на действия пользователя
+        </p>
+      </div>
+    </section>
+
+    <section class="lesson-main">
+
+      <!-- ТЕОРИЯ -->
+      <article class="lesson-step-card">
+        <div class="step-head">
+          <h2>Теория</h2>
+        </div>
+
+        <p>
+          События — это действия пользователя: клик, нажатие кнопки и т.д.
+        </p>
+
+        <div class="concept-grid">
+
+          <div class="concept-card">
+            <h4>onclick</h4>
+            <p>Срабатывает при клике</p>
+          </div>
+
+          <div class="concept-card">
+            <h4>function</h4>
+            <p>Выполняет действие</p>
+          </div>
+
+          <div class="concept-card">
+            <h4>переменная</h4>
+            <p>Хранит данные</p>
+          </div>
+
+        </div>
+
+        <div class="code-demo">
+<pre>
+let count = 0;
+
+function add(){
+  count++;
+}
+</pre>
+        </div>
+
+      </article>
+
+      <!-- ПРАКТИКА -->
+      <article class="lesson-step-card">
+        <div class="step-head">
+          <h2>Практика</h2>
+        </div>
+
+        <p>Создай счётчик кликов:</p>
+
+        <textarea id="jsInput" class="lesson-textarea lesson-textarea-large"><!DOCTYPE html>
+<html>
+<body>
+
+<h2 id="count">0</h2>
+
+<button onclick="add()">+1</button>
+
+<script>
+let count = 0;
+
+function add(){
+  count++;
+  document.getElementById("count").innerHTML = count;
+}
+</script>
+
+</body>
+</html></textarea>
+
+        <div class="lesson-btn-row">
+          <button class="lesson-btn secondary" onclick="preview()">Показать результат</button>
+        </div>
+
+        <iframe id="previewFrame" class="preview-frame"></iframe>
+
+      </article>
+
+      <!-- МИНИ-ПРОЕКТ -->
+      <article class="lesson-step-card">
+        <div class="step-head">
+          <h2>Мини-проект</h2>
+        </div>
+
+        <p>Улучшите счётчик:</p>
+
+        <ul>
+          <li>добавь кнопку «-1»</li>
+          <li>добавь кнопку «Сброс»</li>
+        </ul>
+
+      </article>
+
+      <!-- РЕФЛЕКСИЯ -->
+      <article class="lesson-step-card">
+        <div class="step-head">
+          <h2>Рефлексия</h2>
+        </div>
+
+        <ul>
+          <li>Что такое событие?</li>
+          <li>Что делает onclick?</li>
+          <li>Как изменить число на странице?</li>
+        </ul>
+
+        <div class="status-box ok">
+          Урок завершён!
+        </div>
+
+        <div class="lesson-navigation">
+          <a href="lesson12.html" class="prev-btn">← Предыдущий урок</a>
+          <a href="student-home.html" class="center-btn">К урокам</a>
+          <a href="lesson14.html" class="next-btn">Следующий урок →</a>
+        </div>
+
+      </article>
+
+    </section>
+
+  </main>
+
+  <script>
+    function preview() {
+      const code = document.getElementById("jsInput").value;
+      document.getElementById("previewFrame").srcdoc = code;
+    }
+  </script>
+
+</body>
+</html>
