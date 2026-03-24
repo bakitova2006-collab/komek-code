@@ -202,10 +202,9 @@ function darkMode(){
     }
 
     function finish() {
-      localStorage.setItem("lesson15_done", "true");
-      document.getElementById("finalMessage").innerHTML =
-        "🎉 Поздравляем! Ты завершил курс KOMEK CODE!";
-    }
+  localStorage.setItem("course_done", "true");
+  window.location.href = "finish.html";
+}
   </script>
 
 </body>
