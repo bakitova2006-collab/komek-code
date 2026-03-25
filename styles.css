@@ -1684,3 +1684,7 @@ margin-top:0;
 .center-btn:hover{
   background:#e2e8f0;
 }
+.hero-logo {
+  width: 120px;
+  margin-bottom: 15px;
+}
