@@ -1688,3 +1688,16 @@ margin-top:0;
   width: 120px;
   margin-bottom: 15px;
 }
+/* ===== ЛОГО ===== */
+.brand-logo-img {
+  width: 55px;
+  height: 55px;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(77,120,255,0.25);
+  transition: 0.3s;
+}
+
+.brand-logo-img:hover {
+  transform: scale(1.08) rotate(-3deg);
+}
