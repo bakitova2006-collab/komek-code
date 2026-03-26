@@ -3,13 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>KOMEK CODE — Урок 1</title>
-
 <link rel="stylesheet" href="styles.css">
+<style>
+/* Простейший стиль прогресс-бара */
+.progress-container {
+  width: 100%;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 20px 0;
+  height: 15px;
+}
 
+.progress-bar {
+  width: 33%; /* пример: 1/3 урока пройдено */
+  height: 100%;
+  background-color: #4caf50;
+  transition: width 0.3s;
+}
+</style>
 </head>
-
 <body>
 
 <div class="bg-shape shape-1"></div>
@@ -19,37 +33,36 @@
 <main class="stepik-page">
 
 <header class="stepik-topbar">
-
-<div class="brand">
-<div class="brand-logo">KC</div>
-
-<div>
-<div class="brand-title">KOMEK CODE</div>
-<div class="brand-subtitle">Модуль 1 · HTML</div>
-</div>
-</div>
-
-<div class="stepik-top-actions">
-<a class="ghost-btn" href="student-home.html">К урокам</a>
-</div>
-
+  <div class="brand">
+    <div class="brand-logo">KC</div>
+    <div>
+      <div class="brand-title">KOMEK CODE</div>
+      <div class="brand-subtitle">Модуль 1 · HTML</div>
+    </div>
+  </div>
+  <div class="stepik-top-actions">
+    <a class="ghost-btn" href="student-home.html">К урокам</a>
+  </div>
 </header>
 
 <section class="lesson-header-card">
 
-<div>
+  <div>
+    <div class="hero-badge">Урок 1</div>
 
-<div class="hero-badge">Урок 1</div>
+    <h1 class="lesson-main-title">Введение в HTML</h1>
+    <p class="lesson-main-subtitle">Что такое HTML и как создаётся первая страница</p>
 
-<h1 class="lesson-main-title">
-Введение в HTML
-</h1>
+    <!-- Тема и цель -->
+    <p><strong>Тема урока:</strong> Основы HTML и создание первой веб-страницы</p>
+    <p><strong>Цель урока:</strong> Познакомиться с HTML, понять структуру веб-страницы и написать свой первый HTML-код</p>
 
-<p class="lesson-main-subtitle">
-Что такое HTML и как создаётся первая страница
-</p>
+    <!-- Прогресс урока -->
+    <div class="progress-container">
+      <div class="progress-bar"></div>
+    </div>
 
-</div>
+  </div>
 
 </section>
 
@@ -58,110 +71,76 @@
 <!-- ТЕОРИЯ -->
 
 <div class="lesson-step-card">
+  <div class="step-head"><h2>Теория</h2></div>
 
-<div class="step-head">
+  <p>
+    HTML (HyperText Markup Language) — это язык разметки, с помощью которого создаются веб-страницы. 
+    Он не является языком программирования — HTML определяет структуру и содержание страницы.
+  </p>
 
-<h2>Теория</h2>
+  <p>
+    Страница в HTML состоит из элементов, называемых тегами. Теги описывают различные части страницы: заголовки, абзацы, списки, изображения, ссылки и т.д.
+  </p>
 
-</div>
+  <p>
+    Каждый тег имеет открывающий и закрывающий вариант: <code>&lt;h1&gt;Заголовок&lt;/h1&gt;</code>, 
+    <code>&lt;p&gt;Абзац текста&lt;/p&gt;</code>. Теги могут содержать атрибуты, которые уточняют их поведение или стиль.
+  </p>
 
-<p>
-
-HTML — это язык разметки, с помощью которого создаются страницы сайтов.
-
-Он описывает структуру страницы: заголовки, текст, изображения, списки.
-
-</p>
-
-<p>
-
-HTML состоит из тегов.
-
-</p>
-
-<div class="code-demo">
-<pre>
-
+  <div class="code-demo">
+    <pre>
 <h1>Заголовок</h1>
 <p>Абзац текста</p>
+<ul>
+  <li>Пункт списка 1</li>
+  <li>Пункт списка 2</li>
+</ul>
+    </pre>
+  </div>
 
-</pre>
-</div>
-
-<p>
-
-Теги сообщают браузеру, как отображать содержимое.
-
-</p>
-
+  <p>С помощью HTML браузер понимает, как отображать содержимое страницы.</p>
 </div>
 
 <!-- ПРИМЕР -->
 
 <div class="lesson-step-card">
+  <div class="step-head"><h2>Пример из жизни</h2></div>
 
-<div class="step-head">
+  <p>
+    Любая веб-страница начинается с HTML-разметки. Например, страница школы может содержать:
+  </p>
 
-<h2>Пример из жизни</h2>
+  <ul class="nice-list">
+    <li>Название школы</li>
+    <li>Описание</li>
+    <li>Новости</li>
+    <li>Контакты и расписание занятий</li>
+  </ul>
 
-</div>
-
-<p>
-
-Любая веб-страница начинается с HTML-разметки.
-
-Например страница школы может содержать:
-
-</p>
-
-<ul class="nice-list">
-
-<li>Название школы</li>
-<li>Описание</li>
-<li>Новости</li>
-
-</ul>
-
+  <p>HTML помогает структурировать эти элементы и правильно их отображать в браузере.</p>
 </div>
 
 <!-- ПРАКТИКА -->
 
 <div class="lesson-step-card">
+  <div class="step-head"><h2>Практика</h2></div>
 
-<div class="step-head">
-
-<h2>Практика</h2>
-
-</div>
-
-<label class="lesson-label">Напиши простой HTML</label>
-
-<textarea id="code" class="lesson-textarea">
-
+  <label class="lesson-label">Напиши простой HTML</label>
+  <textarea id="code" class="lesson-textarea">
 <h1>Моя первая страница</h1>
-
 <p>Я изучаю веб-программирование.</p>
+  </textarea>
 
-</textarea>
+  <div class="lesson-btn-row">
+    <button class="lesson-btn secondary" id="runBtn">Показать результат</button>
+    <button class="lesson-btn primary" id="finishBtn">Завершить урок</button>
+  </div>
 
-<div class="lesson-btn-row">
-
-<button class="lesson-btn secondary" id="runBtn">
-Показать результат
-</button>
-
-<button class="lesson-btn primary" id="finishBtn">
-Завершить урок
-</button>
-
+  <iframe id="preview" class="preview-frame"></iframe>
 </div>
 
-<iframe id="preview" class="preview-frame"></iframe>
-
-</div>
-  
 <div class="lesson-navigation">
-    <a href="lesson2.html" class="next-btn">Следующий урок →</a>
+  <a href="lesson2.html" class="next-btn">Следующий урок →</a>
 </div>
 
 </section>
@@ -169,6 +148,5 @@ HTML состоит из тегов.
 </main>
 
 <script type="module" src="lesson1.js"></script>
-
 </body>
 </html>
