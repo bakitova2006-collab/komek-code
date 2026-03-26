@@ -22,20 +22,10 @@
       </div>
 
       <div class="stepik-top-actions">
-
-  <a class="ghost-btn" href="student-home.html">
-    К урокам
-  </a>
-
-  <a class="ghost-btn" href="lesson1.html">
-    ← Урок 1
-  </a>
-
-  <a class="ghost-btn" href="lesson3.html">
-    Урок 3 →
-  </a>
-
-</div>
+        <a class="ghost-btn" href="student-home.html">К урокам</a>
+        <a class="ghost-btn" href="lesson1.html">← Урок 1</a>
+        <a class="ghost-btn" href="lesson3.html">Урок 3 →</a>
+      </div>
     </header>
 
     <section class="lesson-header-card">
@@ -70,29 +60,21 @@
       <aside class="course-sidebar">
         <div class="sidebar-card">
           <div class="sidebar-title">Путь урока</div>
-
           <button class="path-step active" data-target="stepTheory">
             <span class="path-index">1</span>
             <span class="path-text">Теория</span>
-            <span class="path-state" id="stateTheory">активно</span>
           </button>
-
-          <button class="path-step locked" data-target="stepTrainer" id="navTrainer">
+          <button class="path-step active" data-target="stepTrainer">
             <span class="path-index">2</span>
             <span class="path-text">Тренажёр</span>
-            <span class="path-state" id="stateTrainer">закрыто</span>
           </button>
-
-          <button class="path-step locked" data-target="stepPractice" id="navPractice">
+          <button class="path-step active" data-target="stepPractice">
             <span class="path-index">3</span>
             <span class="path-text">Практика</span>
-            <span class="path-state" id="statePractice">закрыто</span>
           </button>
-
-          <button class="path-step locked" data-target="stepReflection" id="navReflection">
+          <button class="path-step active" data-target="stepReflection">
             <span class="path-index">4</span>
             <span class="path-text">Рефлексия</span>
-            <span class="path-state" id="stateReflection">закрыто</span>
           </button>
         </div>
 
@@ -117,8 +99,8 @@
 
       <section class="lesson-main">
 
-        <!-- ЭТАП 1 -->
-        <article class="lesson-step-card active-step" id="stepTheory">
+        <!-- ЭТАП 1: Теория -->
+        <article class="lesson-step-card" id="stepTheory">
           <div class="step-head">
             <div>
               <div class="card-chip">Этап 1</div>
@@ -131,7 +113,7 @@
             <h3>Как оформить содержание страницы</h3>
             <p>
               После того как структура документа создана, страницу нужно наполнить содержанием.
-              Для этого часто используют заголовки, абзацы и списки.
+              Для этого используют заголовки, абзацы и списки.
             </p>
           </div>
 
@@ -181,7 +163,7 @@
           <div class="code-demo">
 <pre>
 &lt;h1&gt;Мой город&lt;/h1&gt;
-&lt;p&gt;Я хочу рассказать о своём городе.&lt;/p&gt;
+&lt;p&gt;Я хочу рассказать о своём городе.&lt;/p;
 
 &lt;ul&gt;
   &lt;li&gt;Красивые места&lt;/li&gt;
@@ -190,18 +172,10 @@
 &lt;/ul&gt;
 </pre>
           </div>
-
-          <div class="step-footer">
-            <button class="lesson-btn primary" id="completeTheoryBtn">Я изучил(а) теорию</button>
-          </div>
         </article>
 
-        <!-- ЭТАП 2 -->
-        <article class="lesson-step-card locked-step" id="stepTrainer">
-          <div class="locked-overlay">
-            <div class="locked-text">Сначала заверши предыдущий этап</div>
-          </div>
-
+        <!-- ЭТАП 2: Тренажёр -->
+        <article class="lesson-step-card" id="stepTrainer">
           <div class="step-head">
             <div>
               <div class="card-chip">Этап 2</div>
@@ -213,11 +187,6 @@
           <p>
             Добавь в код абзац и список. Это тренировочный этап — он нужен для подготовки к практике.
           </p>
-
-          <div class="trainer-task-box">
-            <div class="trainer-task-title">Задание</div>
-            <p>Нужно дописать один тег <code>&lt;p&gt;</code> и один список <code>&lt;ul&gt;</code> с элементами <code>&lt;li&gt;</code>.</p>
-          </div>
 
           <textarea id="trainerInput" class="lesson-textarea"><!DOCTYPE html>
 <html>
@@ -234,29 +203,10 @@
           <div class="lesson-btn-row">
             <button class="lesson-btn secondary" id="checkTrainerBtn">Проверить тренажёр</button>
           </div>
-
-          <div class="validation-box">
-            <div class="validation-title">Проверка</div>
-            <div class="validation-item" id="trainerCheckP">• есть тег &lt;p&gt;</div>
-            <div class="validation-item" id="trainerCheckList">• есть список &lt;ul&gt; или &lt;ol&gt;</div>
-            <div class="validation-item" id="trainerCheckLi">• есть элементы списка &lt;li&gt;</div>
-          </div>
-
-          <div class="status-box" id="trainerStatus">
-            Выполни задание, чтобы открыть практику.
-          </div>
-
-          <div class="step-footer">
-            <button class="lesson-btn primary" id="openPracticeStepBtn" disabled>Открыть практику</button>
-          </div>
         </article>
 
-        <!-- ЭТАП 3 -->
-        <article class="lesson-step-card locked-step" id="stepPractice">
-          <div class="locked-overlay">
-            <div class="locked-text">Сначала заверши тренажёр</div>
-          </div>
-
+        <!-- ЭТАП 3: Практика -->
+        <article class="lesson-step-card" id="stepPractice">
           <div class="step-head">
             <div>
               <div class="card-chip">Этап 3</div>
@@ -271,31 +221,9 @@
               <h3>Минимум</h3>
               <p>Заголовок, абзац и простой список по теме «Мой город».</p>
             </div>
-
-            <div class="practice-level-card medium">
-              <div class="level-badge">Средний</div>
-              <h3>Лучше</h3>
-              <p>Добавь второй абзац и сделай более содержательный список.</p>
-            </div>
-
-            <div class="practice-level-card strong">
-              <div class="level-badge">Повышенный</div>
-              <h3>Творческий</h3>
-              <p>Создай мини-страницу о местах своего региона: заголовок, 2 абзаца и список.</p>
-            </div>
           </div>
 
-          <div class="editor-toolbar">
-            <button class="lesson-btn secondary" id="saveDraftBtn">Сохранить черновик</button>
-            <button class="lesson-btn secondary" id="previewBtn">Показать результат</button>
-            <button class="lesson-btn primary" id="submitPracticeBtn">Сдать учителю</button>
-            <div class="score-pill" id="practiceScoreBadge">0/10</div>
-          </div>
-
-          <div class="editor-layout">
-            <div class="editor-column">
-              <label class="lesson-label">HTML-код</label>
-              <textarea id="practiceInput" class="lesson-textarea lesson-textarea-large"><!DOCTYPE html>
+          <textarea id="practiceInput" class="lesson-textarea lesson-textarea-large"><!DOCTYPE html>
 <html>
   <head>
     <title>Мой город</title>
@@ -312,39 +240,13 @@
   </body>
 </html></textarea>
 
-              <div class="validation-box">
-                <div class="validation-title">Критерии проверки</div>
-                <div class="validation-item" id="practiceCheckH1">• есть тег &lt;h1&gt;</div>
-                <div class="validation-item" id="practiceCheckP">• есть тег &lt;p&gt;</div>
-                <div class="validation-item" id="practiceCheckList">• есть список &lt;ul&gt; или &lt;ol&gt;</div>
-                <div class="validation-item" id="practiceCheckLi">• есть элементы списка &lt;li&gt;</div>
-              </div>
-
-              <div class="status-box" id="practiceStatus">
-                Напиши код, покажи результат и сдай работу учителю.
-              </div>
-            </div>
-
-            <div class="editor-column">
-              <label class="lesson-label">Предпросмотр</label>
-              <iframe id="previewFrame" class="preview-frame"></iframe>
-
-              <div class="helper-box">
-                <div class="helper-title">Подсказка</div>
-                <p>
-                  Список нужен не для галочки: он должен помогать читателю быстро увидеть важную информацию.
-                </p>
-              </div>
-            </div>
+          <div class="lesson-btn-row">
+            <button class="lesson-btn primary" id="submitPracticeBtn">Сдать учителю</button>
           </div>
         </article>
 
-        <!-- ЭТАП 4 -->
-        <article class="lesson-step-card locked-step" id="stepReflection">
-          <div class="locked-overlay">
-            <div class="locked-text">Откроется после сдачи практики</div>
-          </div>
-
+        <!-- ЭТАП 4: Рефлексия -->
+        <article class="lesson-step-card" id="stepReflection">
           <div class="step-head">
             <div>
               <div class="card-chip">Этап 4</div>
@@ -358,46 +260,25 @@
               <h3>Что получилось хорошо?</h3>
               <p>Какая часть страницы была самой лёгкой?</p>
             </div>
-
             <div class="reflection-card">
               <h3>Что было труднее?</h3>
               <p>Что оказалось сложнее: абзацы или списки?</p>
             </div>
-
             <div class="reflection-card">
               <h3>Что дальше?</h3>
               <p>Следующий шаг — изображения и ссылки на странице.</p>
             </div>
           </div>
-
-          <div class="status-box ok" id="finalStatus">
-            Урок завершён. Молодец!
-          </div>
-          
-          
-      <div class="lesson-navigation">
-        <a href="lesson1.html" class="prev-btn">← Предыдущий урок</a>
-        <a href="lesson3.html" class="next-btn">Следующий урок →</a>
-      </div>
         </article>
 
       </section>
     </section>
-<div class="lesson-navigation global-nav">
 
-  <a href="lesson1.html" class="prev-btn">
-    ← Предыдущий урок
-  </a>
-
-  <a href="student-home.html" class="center-btn">
-    К урокам
-  </a>
-
-  <a href="lesson3.html" class="next-btn">
-    Следующий урок →
-  </a>
-
-</div>
+    <div class="lesson-navigation global-nav">
+      <a href="lesson1.html" class="prev-btn">← Предыдущий урок</a>
+      <a href="student-home.html" class="center-btn">К урокам</a>
+      <a href="lesson3.html" class="next-btn">Следующий урок →</a>
+    </div>
   </main>
 
   <script type="module" src="student.js"></script>
